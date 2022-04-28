@@ -1,0 +1,15 @@
+.header {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(49, 108, 235);
+    color: white;
+
+    .button, .logo {
+
+        margin: 1rem;
+        color: white;
+    }
+}
