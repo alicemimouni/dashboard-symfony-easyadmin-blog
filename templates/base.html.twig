@@ -4,9 +4,13 @@
 
         <meta charset="UTF-8">
         <title>{% block title %}WebCréation - le blog{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
         {% block stylesheets %}
             <link href="style.css" rel="stylesheet"/>
         {% endblock %}
+
     
     </head>
 
@@ -19,6 +23,9 @@
     {% block body %}
     {% endblock %}
 
+    {% block footer %}
+        {% include 'parts/footer.html.twig' %}
+    {% endblock footer %}
     </body>
 
 </html>

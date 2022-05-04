@@ -1,9 +1,29 @@
-<div class="header">
-    <a class="logo" href="">
-        <img src="" alt="Logo"/>
-    </a>
-    <p> Web Création - Le Blog</p>
-    <a class="button" href="">
-        Contactez un dévéloppeur web
-    </a>
+<div class="nav-top">
+    {# BUTTON AND SEARCH #}
+    <div class="top">
+        <a class="button" href="">
+            Contact
+        </a>
+        <a href="" class="search"><img src=" {{ asset('/img/search.svg') }} "
+                        alt="Rechercher un produit"></a>
+    </div>
+    
+    {# TITLE AND BURGER MENU #}
+    <div class="header">
+        <div class="logo-header">
+            <a class="logo" href="">
+                <img src=" {{ asset('/img/logo-white.png') }} " alt="Logo" width="50px"/>
+            </a>
+            <p> Web Création - Le Blog</p>
+        </div>
+        <div class="navbar">
+        <!-- menu -->
+            <a id="link" href="#"><span id="burger"></span></a>
+            <ul class="menu">
+                <li><a href="">Articles</a></li>
+                <li><a href="">Tutos</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
+    
