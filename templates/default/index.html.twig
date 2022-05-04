@@ -15,4 +15,27 @@
 
 {% block body %}
 
+   <section class="articles">
+    <div class="cards-container">
+    <h2>Tous les articles</h2>
+        {# CARDS #}
+        {% for article in articles %}
+        <div class="card" >
+            <img class="p-0" src="{{ asset('img/'~ article.featuredImage) }}" class="card-img-top" alt="" width="280px">
+            <div class="card-content">
+                <div class="categories">
+                    {% for category in article.categories %}
+                        <p class="card-title fs-6"> {{ category.name }} </p>
+                    {% endfor %}
+                </div>
+                <h3> {{ article.title }} </h3>
+                <a href=" {{ path('detail_article', {'article': article.id }) }} " class="button">Voir
+                        l'article</a>
+            </div>
+        </div>
+        {% endfor %}
+        {# END CARDS #}
+    </div>
+</section>
+
 {% endblock %}
