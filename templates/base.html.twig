@@ -30,6 +30,10 @@
     {% block footer %}
     {% include 'parts/footer.html.twig' %}
     {% endblock footer %}
+
+    {% block javascripts %}
+        <script type="text/javascript" src=" {{ asset('js/global-scripts.js') }} "></script>
+    {% endblock %}
 </body>
 
 </html>

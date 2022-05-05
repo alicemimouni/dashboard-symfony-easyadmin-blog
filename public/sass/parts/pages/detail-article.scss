@@ -1,20 +1,62 @@
 .detail-article {
 
     margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     .content-article {
 
-       margin: 1rem;
+        margin: 1rem;
+        max-width: 540px;
 
-       .introduction, .text-content, video, .image-section {
+        .introduction,
+        .text-content,
+        .video,
+        .image-section {
 
-        margin: 3rem 0;
-       }
+            margin: 3rem 0;
+        }
 
-       img {
+        img {
 
-        border-radius: 3px;
-       }
-       
+            border-radius: 3px;
+        }
+
+        .video {
+
+            cursor: pointer;
+            z-index: 1;
+            position: relative;
+            
+            video {
+                
+                border: 5px solid $color-light-grey;
+                transition: 1s;
+            
+            }
+            span.play {
+
+                position: absolute;
+               top: 40%;
+                left: 42.5%;
+                right: 42.5%;
+                z-index: 3;
+                width: 15%;
+                opacity: 0.5;
+
+                img {
+
+                    width: 100%;
+                }
+            }
+        }
+
+        .part-section {
+
+            margin-bottom: 3rem;
+        }
     }
+
 }

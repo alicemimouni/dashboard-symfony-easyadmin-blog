@@ -45,10 +45,16 @@ class Section
      */
     private $videos;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Part::class, mappedBy="section")
+     */
+    private $parts;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
         $this->videos = new ArrayCollection();
+        $this->parts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -136,6 +142,36 @@ class Section
     public function removeVideo(video $video): self
     {
         $this->videos->removeElement($video);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Part>
+     */
+    public function getParts(): Collection
+    {
+        return $this->parts;
+    }
+
+    public function addPart(Part $part): self
+    {
+        if (!$this->parts->contains($part)) {
+            $this->parts[] = $part;
+            $part->setSection($this);
+        }
+
+        return $this;
+    }
+
+    public function removePart(Part $part): self
+    {
+        if ($this->parts->removeElement($part)) {
+            // set the owning side to null (unless already changed)
+            if ($part->getSection() === $this) {
+                $part->setSection(null);
+            }
+        }
 
         return $this;
     }

@@ -29,6 +29,11 @@ class Video
      */
     private $sections;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $poster;
+
     public function __construct()
     {
         $this->sections = new ArrayCollection();
@@ -74,6 +79,18 @@ class Video
         if ($this->sections->removeElement($section)) {
             $section->removeVideo($this);
         }
+
+        return $this;
+    }
+
+    public function getPoster(): ?string
+    {
+        return $this->poster;
+    }
+
+    public function setPoster(?string $poster): self
+    {
+        $this->poster = $poster;
 
         return $this;
     }

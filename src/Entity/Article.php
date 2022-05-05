@@ -59,6 +59,11 @@ class Article
      */
     private $slug;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Image::class, inversedBy="articles")
+     */
+    private $image;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -192,6 +197,18 @@ class Article
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Image $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

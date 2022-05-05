@@ -29,9 +29,20 @@ class Image
      */
     private $sections;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $alt;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="image")
+     */
+    private $articles;
+
     public function __construct()
     {
         $this->sections = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -73,6 +84,48 @@ class Image
     {
         if ($this->sections->removeElement($section)) {
             $section->removeImage($this);
+        }
+
+        return $this;
+    }
+
+    public function getAlt(): ?string
+    {
+        return $this->alt;
+    }
+
+    public function setAlt(string $alt): self
+    {
+        $this->alt = $alt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setImage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getImage() === $this) {
+                $article->setImage(null);
+            }
         }
 
         return $this;
