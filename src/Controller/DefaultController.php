@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,9 +24,9 @@ class DefaultController extends AbstractController
     // DETAIL ONE article
     // ####################
     /**
-     * @Route("/article-detail/{article}", name="detail_article", methods={"GET"})
+     * @Route("/article-blog/{slug}", name="detail_article", methods={"GET"})
      */
-    public function getOneArticle(article $article): Response
+    public function getOneArticle(Article $article): Response
     {
         return $this->render('article/detail_article.html.twig', [
             'article' => $article,

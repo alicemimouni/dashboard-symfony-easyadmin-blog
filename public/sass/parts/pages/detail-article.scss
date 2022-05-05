@@ -1,0 +1,20 @@
+.detail-article {
+
+    margin: 3rem 0;
+
+    .content-article {
+
+       margin: 1rem;
+
+       .introduction, .text-content, video, .image-section {
+
+        margin: 3rem 0;
+       }
+
+       img {
+
+        border-radius: 3px;
+       }
+       
+    }
+}

@@ -1,14 +1,15 @@
 .articles {
 
+    margin-bottom: 3rem;
+
+    h1 {
+
+        margin: 3rem 0;
+        text-align: center;
+    }
     .cards-container {
 
-        h2 {
 
-            margin: 3rem 0;
-            font-size: 1.5rem;
-        }
-
-        margin: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -16,8 +17,7 @@
 
         .card {
 
-            width: 280px;
-            height: 450px;
+            width: 87%;
             display: flex;
             flex-direction: column;
             background-color: $color-light-grey;
@@ -27,7 +27,7 @@
             img {
 
                 border-radius: 10px 10px 0 0;
-                height: 180px;
+                height: 290px;
             }
 
             .card-content {
@@ -38,6 +38,7 @@
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: flex-start;
+                height: 220px;
 
                 h3 {
 
@@ -50,24 +51,97 @@
 
                     margin: 1rem 0;
                 }
-                .categories {
-    
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: flex-start;
-                    margin: 1rem 0;
-    
-                    p {
-    
-                        padding: 0.5rem;
-                        margin: 0;
-                        margin-right: 0.5rem;
-                        background-color: $color-fourth;
-                        color: $color-secondary;
-                    }
+            }
+        }
+    }
+
+
+    @media screen and (min-width: 500px) {
+
+        .cards-container {
+
+            .card {
+
+                img {
+
+                    height: 320px;
                 }
             }
         }
     }
+
+    @media screen and (min-width: 600px) {
+
+        .cards-container {
+
+            .card {
+
+                img {
+
+                    height: 350px;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 700px) {
+
+        .cards-container {
+
+            .card {
+
+                img {
+
+                    height: 390px;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 770px) {
+
+        .cards-container {
+
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .card {
+
+                margin: 2rem;
+                width: 320px;
+
+                img {
+
+                    height: 290px;
+                }
+            }
+        }
+    }
+}
+
+ // show categories on article
+ .categories {
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 1rem 0;
+
+    p {
+
+        padding: 0.5rem;
+        margin: 0;
+        margin-right: 0.5rem;
+        background-color: $color-fourth;
+        color: $color-secondary;
+        border-radius: 3px;
+    }
+}
+
+.date-article {
+
+    color: $color-grey;
+    font-weight: 600;
+    font-size: 0.9rem;
 }

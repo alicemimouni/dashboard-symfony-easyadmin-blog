@@ -1,9 +1,12 @@
 @import "bases/variables.scss";
 @import "parts/header.scss";
 @import "parts/footer.scss";
+@import "parts/pages/detail-article.scss";
 @import "bases/body.scss";
 @import "components/buttons.scss";
 @import "components/forms.scss";
 @import "components/articles-cards.scss";
 
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap');

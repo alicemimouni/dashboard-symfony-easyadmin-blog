@@ -10,4 +10,12 @@ body {
         text-decoration: none;
         color: white;
     }
+
+    h1, h2 {
+
+        color: $color-primary;
+        font-family: $font-titles;
+    
+    }
+
 }
