@@ -1,7 +1,7 @@
 <div class="nav-top">
     {# BUTTON AND SEARCH #}
     <div class="top">
-        <a class="button" href="https://alicerichardeau.fr">
+        <a class="button button-outline-hover" href="https://alicerichardeau.fr">
             Contactez un développeur
         </a>
         <a href="" class="search"><img src=" {{ asset('/img/search.svg') }} "
@@ -10,16 +10,20 @@
     
     {# TITLE AND BURGER MENU #}
     <div class="header">
-        <a class="logo" href="">
+        <a class="logo" href=" {{ path('default') }} ">
             <img src=" {{ asset('/img/logo-white.png') }} " alt="Logo" width="50px"/>
         </a>
-        <p> Web Création - Le Blog</p>
+        <p>Création web - Le blog</p>
         <div class="navbar">
         <!-- menu -->
             <a id="link" href="#"><span id="burger"></span></a>
             <ul class="menu">
-                <li><a href="">Articles</a></li>
-                <li><a href="">Tutos</a></li>
+            {% for article in articles %}
+                {% for category in article.categories %}
+                    <li><a href=""> {{ category.name }} </a></li>
+                {% endfor %}
+            {% endfor %}
+
             </ul>
         </div>
     </div>

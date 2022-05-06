@@ -3,8 +3,8 @@
 
 {% block body %}
 
+{# section detail article #}
 <div class="detail-article">
-
     {# detail article #}
     <div class="content-article">
         <h1> {{ article.title }} </h1>
@@ -54,8 +54,15 @@
             {% endif %}
         {% endfor %}
     </div>
-
 </div>
+{# end section detail article #}
+
+ <h2 class="title-cards">À lire aussi</h2>
+{% block all_articles %}
+    {% include 'parts/all_articles.html.twig' %}
+{% endblock all_articles %}
+
+
 
 {% endblock body %}
  {% block javascripts %}

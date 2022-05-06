@@ -1,41 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-    {% block title %}
-        {{ parent() }}
-    {% endblock %}
-    {% block stylesheets %}
-        {{ parent() }}
-    {% endblock stylesheets %}
+{% block title %}
+{{ parent() }}
+{% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+{% endblock stylesheets %}
 {% endblock head %}
 
 {% block header %}
-         {{ parent() }}
-    {% endblock header %}
+    {{ parent() }}
+{% endblock header %}
 
 {% block body %}
 
-   <section class="articles">
-    <h1>Tous les articles</h1>
-    <div class="cards-container">
-        {# CARDS #}
-        {% for article in articles %}
-        <div class="card" >
-            <img src="{{ asset('img/'~ article.featuredImage) }}" class="card-img-top" alt="" width="100%">
-            <div class="card-content">
-                <div class="categories">
-                    {% for category in article.categories %}
-                        <p class="card-title fs-6"> {{ category.name }} </p>
-                    {% endfor %}
-                </div>
-                <h3> {{ article.title }} </h3>
-                <a href=" {{ path('detail_article', {'slug': article.slug }) }} " class="button">Voir
-                        l'article</a>
-            </div>
-        </div>
-        {% endfor %}
-        {# END CARDS #}
-    </div>
-</section>
+    <h1 class="home">Blog d'astuces et tutos web</h1>
+    {% block all_articles %}
+            {% include 'parts/all_articles.html.twig' %}
+    {% endblock all_articles %}
 
 {% endblock %}

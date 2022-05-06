@@ -5,3 +5,17 @@
     padding: 0.5rem 1.2rem;
     border-radius: 50px;
 }
+
+.button:hover {
+
+    background-color: $color-primary;
+}
+
+.button-outline-hover {
+
+    border: 1px solid $color-secondary;
+}
+.button-outline-hover:hover {
+
+    border-color:  white;
+}
