@@ -20,7 +20,7 @@
             <ul class="menu">
             {% for article in articles %}
                 {% for category in article.categories %}
-                    <li><a href=""> {{ category.name }} </a></li>
+                    <li><a href=" {{ path('articles_by_category', {'slug': category.slug }) }} "> {{ category.name }} </a></li>
                 {% endfor %}
             {% endfor %}
 
