@@ -5,26 +5,26 @@
 {% block body %}
 {% for category in categories %}
     <h2> {{ category.name }} </h2>
-    {# {% for article in category.articles %} #}
+    {% for article in category.articles %}
     {# section all articles #}
-    {# <section class="articles">
-        <div class="cards-container"> #}
+    <section class="articles">
+        <div class="cards-container">
             {# cards #}
-            {# <div class="card">
+            <div class="card">
                 <img src="{{ asset('img/'~ article.featuredImage) }}" class="card-img-top" alt="" width="100%">
                 <div class="card-content">
                     <div class="categories">
                         <p class="card-title fs-6"> {{ category.name }} </p>
                     </div>
                     <h3> {{ article.title }} </h3>
-                    <a href=" {{ path('articles_by_category', {'slug': category.slug }) }} " class="button">Voir
+                    <a href=" {{ path('detail_article', {'slug': article.slug }) }} " class="button">Voir
                         l'article</a>
                 </div>
             </div>
-            {% endfor %} #}
-            {# end cards #}
-        {# </div>
-    </section> #}
+        </div>
+    </section>
+    {% endfor %}
+    {# end cards #}
 {# end section all articles #}
 {% endfor %}
 {% endblock %}

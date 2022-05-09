@@ -26,6 +26,18 @@
         {% for section in article.sections %}
 
             <h2> {{ section.name }} </h2>
+            <p class="text-content"> {{ section.textContent }} </p>
+
+            {# if there is parts in section #}
+            {% if section.parts %}
+                {% for part in section.parts %}
+                <div class="part-section">
+                    <h3> {{ part.name }} </h3>
+                    <p> {{ part.content }} </p>
+                </div>
+                {% endfor %}
+            {% endif %}
+
             {% if section.images %}
                 {% for image in section.images %}
                 <img src="{{ asset('../../img/'~ image.url) }}" class="image-section" alt="" width="300px">
@@ -38,17 +50,6 @@
                         <source src=" {{ asset('videos/'~ video.url) }} " type="video/mp4">  
                     </video>
                     <span class="play"><img src=" {{ asset('img/play-video.svg') }} " alt="Lecture"></span>
-                </div>
-                {% endfor %}
-            {% endif %}
-            <p class="text-content"> {{ section.textContent }} </p>
-
-            {# if there is parts in section #}
-            {% if section.parts %}
-                {% for part in section.parts %}
-                <div class="part-section">
-                    <h3> {{ part.name }} </h3>
-                    <p> {{ part.content }} </p>
                 </div>
                 {% endfor %}
             {% endif %}

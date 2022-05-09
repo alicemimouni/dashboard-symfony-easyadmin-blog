@@ -33,7 +33,7 @@ class DefaultController extends AbstractController
     public function menuCategories(ArticleRepository $articleRepository): Response
     {
         return $this->render('parts/header.html.twig', [
-            'articles' => $articlesRepository->findAll()
+            'articles' => $articleRepository->findAll()
         ]);
     }
 
