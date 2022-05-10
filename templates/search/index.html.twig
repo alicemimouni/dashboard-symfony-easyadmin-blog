@@ -1,3 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechercher un article{% endblock %}
+
+{% block body %}
+
+<h2 class="title-cards">Recherchez un article</h2>
+<div class="searchbar">
+{{ form_start(form) }}
+{{ form_end(form) }}
+</div>
 {# section all articles #}
 <section class="articles">
     <div class="cards-container">
@@ -21,3 +32,6 @@
     </div>
 </section>
 {# end section all articles #}
+
+
+{% endblock %}

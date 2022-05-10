@@ -56,11 +56,12 @@ class DefaultController extends AbstractController
      * @Route("/articles-{slug}", name="articles_by_category", methods={"GET"})
      * 
      */
-    public function findByCategory(Category $category, CategoryRepository $categoryRepository): Response
+    public function findByCategory(ArticleRepository $articleRepository, Category $category, CategoryRepository $categoryRepository): Response
     {
         $categories = $categoryRepository->findBy(['id' => $category]);
 
         return $this->render('article/articles_by_category.html.twig', [
+            'articles' => $articleRepository->findAll(),
             'categories' => $categories,
         ]);
 

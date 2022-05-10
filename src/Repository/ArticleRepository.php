@@ -75,4 +75,21 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    // searchbar
+    // #########
+    public function search($filtres) {
+        $query = $this->createQueryBuilder('a')->join('a.categories', 'category');
+        if(!empty($filtres['searchBar'])) {
+            $query->where('a.title LIKE :search')
+            ->orWhere('a.slug LIKE :search')
+            ->orWhere('a.introduction LIKE :search')
+            ->orWhere('a.conclusion LIKE :search')
+            ->orWhere('category.name LIKE :search')
+            ->setParameter('search', '%'.$filtres['searchBar'].'%');
+        }
+        
+        return $query->getQuery()->getResult();
+    }
+
 }

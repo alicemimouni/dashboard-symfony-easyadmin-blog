@@ -19,11 +19,6 @@ body {
         text-transform: uppercase;
         margin-left: 10%;
     
-        @media screen and (min-width: 770px) {
-    
-            text-align: center;
-            margin-left: 0;
-        }
     }
 
     h1, h2, h3 {
@@ -35,7 +30,18 @@ body {
     h1 {
 
         font-size: 1.5rem;
+        margin-bottom: 2rem;
         
+    }
+
+    h2 {
+
+        font-size: 1.5rem;
+    }
+
+    .introduction {
+
+        font-weight: 600;
     }
 
      // show element with transition
@@ -52,4 +58,24 @@ body {
         animation-fill-mode: forwards;
     }
 
+    @media screen and (min-width: 770px) {
+    
+        .title-cards, .home {
+
+            text-align: center;
+            margin-left: 0;
+            font-size: 2rem;
+        }
+
+        h1 {
+
+            font-size: 2.5rem;
+        }
+
+        h2 {
+
+            font-size: 2rem;
+        }
+
+    }
 }
