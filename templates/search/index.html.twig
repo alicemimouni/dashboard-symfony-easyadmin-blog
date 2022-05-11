@@ -9,6 +9,13 @@
 {{ form_start(form) }}
 {{ form_end(form) }}
 </div>
+
+{% if form.vars.submitted %}
+    {% if articles == false %}
+        <p class="empty">Aucun article trouvé</p>
+    {% endif %}
+{% endif %}
+
 {# section all articles #}
 <section class="articles">
     <div class="cards-container">
@@ -32,6 +39,5 @@
     </div>
 </section>
 {# end section all articles #}
-
 
 {% endblock %}

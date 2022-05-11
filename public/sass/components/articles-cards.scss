@@ -113,6 +113,23 @@
         }
     }
 
+    @media screen and (min-width: 1200px) {
+
+        .cards-container {
+
+            .card {
+
+                width: 500px;
+
+                img {
+
+                    height: 430px;
+                }
+            }
+        }
+
+    }
+
 }
 
  // show categories on article

@@ -30,10 +30,10 @@ class DefaultController extends AbstractController
      * @Route("/menu", name="category_menu", methods={"GET"})
      * 
      */
-    public function menuCategories(ArticleRepository $articleRepository): Response
+    public function menuCategories(CategoryRepository $categoryRepository): Response
     {
         return $this->render('parts/header.html.twig', [
-            'articles' => $articleRepository->findAll()
+            'categories' => $categoryRepository->findAll()
         ]);
     }
 

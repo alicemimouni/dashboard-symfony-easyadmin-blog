@@ -11,17 +11,30 @@ body {
         color: white;
     }
 
-    .title-cards, .home {
+    // form message for search bar
+    .empty {
+
+        font-weight: 600;
+    }
+    .title-cards,
+    .home,
+    .empty {
 
         margin: 3rem 1rem;
         text-align: left;
-        font-size: 1.5rem;
-        text-transform: uppercase;
         margin-left: 10%;
-    
     }
 
-    h1, h2, h3 {
+    .title-cards,
+    .home {
+
+        font-size: 1.5rem;
+        text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
 
         color: $color-primary;
         font-family: $font-titles;
@@ -31,7 +44,7 @@ body {
 
         font-size: 1.5rem;
         margin-bottom: 2rem;
-        
+
     }
 
     h2 {
@@ -44,38 +57,80 @@ body {
         font-weight: 600;
     }
 
-     // show element with transition
-     .load {
-    
+    // show element with transition
+    .load {
+
         -webkit-animation-name: cssAnimation;
-        -webkit-animation-duration: 1s;
+        -webkit-animation-duration: 0.8s;
         -webkit-animation-timing-function: ease;
         -webkit-animation-fill-mode: forwards;
 
         animation-name: cssAnimation;
-        animation-duration: 1s;
+        animation-duration: 0.8s;
         animation-timing-function: ease;
         animation-fill-mode: forwards;
     }
 
+    @-webkit-keyframes cssAnimation {
+
+        from {
+
+            opacity: 0;
+
+        }
+
+        to {
+
+            opacity: 1;
+
+        }
+    }
+
+    @keyframes cssAnimation {
+
+        from {
+
+            opacity: 0;
+
+        }
+
+        to {
+
+            opacity: 1;
+
+        }
+    }
+
+
+    // media queries
+    // #############
     @media screen and (min-width: 770px) {
-    
-        .title-cards, .home {
+
+        .title-cards,
+        .home,
+        .empty {
 
             text-align: center;
             margin-left: 0;
+        }
+
+        .title-cards,
+        .home {
+
             font-size: 2rem;
         }
 
-        h1 {
-
-            font-size: 2.5rem;
-        }
-
-        h2 {
-
-            font-size: 2rem;
-        }
 
     }
+
+    h1 {
+
+        font-size: 2.5rem;
+    }
+
+    h2 {
+
+        font-size: 2rem;
+    }
+
 }

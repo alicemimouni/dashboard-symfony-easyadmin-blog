@@ -41,17 +41,14 @@ footer {
                 margin-left: 0.5rem;
             }
 
-            form {
+            .social-links {
 
-                .button {
+                a {
 
-                    border: none;
-                    cursor: pointer;
-                }
+                    img {
 
-                .input-text {
-
-                    margin-right: 1rem;
+                        margin-right: 1rem;
+                    }
                 }
             }
         }

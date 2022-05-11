@@ -12,7 +12,7 @@
                     {% endfor %}
                 </div>
                 <h3> {{ article.title }} </h3>
-                <a href=" {{ path('detail_article', {'slug': article.slug }) }} " class="button">Voir
+                <a href="{{ path('detail_article', {'slug': article.slug }) }}" class="button">Voir
                     l'article</a>
             </div>
         </div>

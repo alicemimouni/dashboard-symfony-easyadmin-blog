@@ -7,6 +7,8 @@ let link = document.getElementById('link');
 let burger = document.getElementById('burger');
 let menu = document.querySelector('.navbar .menu');
 let nav = document.querySelector('.navbar');
+let title = document.querySelector('body .nav-top .header p');
+
 
 window.onscroll = function() {
 
@@ -15,12 +17,15 @@ window.onscroll = function() {
     elementTop.style.display = 'none';
     menu.style.display = "none";
     burger.classList.remove("open");
+    title.style.margin = "0";
 
   }
 
   else {
 
       elementTop.style.display = 'flex';
+      title.style.margin = "2rem 0";
+
     
   }
 }

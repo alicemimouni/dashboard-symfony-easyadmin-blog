@@ -16,16 +16,22 @@ class SearchController extends AbstractController
      */
     public function search(ArticleRepository $articleRepository, Request $request): Response
     {
+
         $form =  $this->createForm(SearchType::class);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
+
+        if($form->isSubmitted() && $form->isValid()) { 
+
             $filtres = $form->getData();
             $articles = $articleRepository->search($filtres);
         }
+
         else {
-            // $articles = $articleRepository->findAll();
+
+            $articles = $articleRepository->findAll();
             $articles = [];
         }
+
         //return all articles
         return $this->render('search/index.html.twig', [
             'form' => $form->createView(),
