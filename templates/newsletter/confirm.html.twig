@@ -1,6 +1,8 @@
-
+{% extends 'base.html.twig' %}
 
 {% block body %}
-<p class="empty">Inscription réussie !</p>
-<a href=" {{ path('default') }} ">Retour au blog</a>
+<section class="section-congratulation">
+<p class="empty">Inscription réussie&nbsp;!</p>
+<a class="button" href=" {{ path('default') }} ">Retour au blog</a>
+</section>
 {% endblock %}

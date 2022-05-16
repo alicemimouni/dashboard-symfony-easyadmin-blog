@@ -40,7 +40,7 @@ class DefaultController extends AbstractController
     // DETAIL ONE article
     // ####################
     /**
-     * @Route("/article-blog/{slug}", name="detail_article", methods={"GET"})
+     * @Route("/article-blog/{slug}", name="detail_article", methods={"GET", "POST"})
      */
     public function getOneArticle(Article $article, ArticleRepository $articleRepository): Response
     {

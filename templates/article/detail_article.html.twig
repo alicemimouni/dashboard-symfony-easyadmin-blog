@@ -58,8 +58,14 @@
 </div>
 {# end section detail article #}
 
- <h2 class="title-cards">À lire aussi</h2>
+{# newsletter #}
+{% block newsletter %}
+   {% include 'parts/newsletter.html.twig' %}
+{% endblock %}
+{# end newsletter #}
+{# other articles #}
 {% block all_articles %}
+    <h2 class="title-cards">À lire aussi</h2>
     {% include 'parts/all_articles.html.twig' %}
 {% endblock all_articles %}
 

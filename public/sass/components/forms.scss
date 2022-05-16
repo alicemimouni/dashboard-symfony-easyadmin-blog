@@ -44,16 +44,29 @@ form, .searchbar form {
 }
 
 // newsletter form
-form {
 
-    .button {
-
-        border: none;
-        cursor: pointer;
+body {
+    
+    .newsletter-form {
+    
+        form {
+    
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+    
+            .button {
+        
+                border: none;
+                cursor: pointer;
+            }
+        
+            .input-text {
+        
+                margin-right: 1rem;
+            }
+        }
     }
 
-    .input-text {
-
-        margin-right: 1rem;
-    }
 }

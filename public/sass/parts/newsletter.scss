@@ -1,0 +1,24 @@
+.section-newsletter {
+
+    max-width: 980px;
+    margin: auto;
+    text-align: center;
+    background-image: url('img/background-newsletter.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 7px;
+    padding: 3rem 1rem;
+    padding-bottom: 5rem;
+
+    h3 {
+
+        margin-bottom: 2rem;
+    }
+
+    h2, h3 {
+
+        color: white;
+        padding: 1rem;
+    }
+}

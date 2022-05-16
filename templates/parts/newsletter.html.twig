@@ -1,0 +1,7 @@
+<section class="section-newsletter">
+    {% block newsletter %}
+        <h2>Vous souhaitez recevoir nos dernières astuces et publications&nbsp;?</h2>
+        <h3>Inscrivez vous à notre newsletter&nbsp;!</h3>
+        {{ render(controller('App\\Controller\\NewsletterController::new')) }}
+    {% endblock %}
+</section>

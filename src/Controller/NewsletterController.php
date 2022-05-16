@@ -16,30 +16,43 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
  */
 class NewsletterController extends AbstractController
 {
+
     /**
-     * @Route("/confirmation", name="app_confirm", methods={"GET"})
+     * @Route("/", name="app_newsletter")
      * 
      */
     public function index(): Response
     {
-        return $this->render('newsletter/confirm.html.twig', [
-            'controller_name' => 'NewsletterController',
-        ]);
+        return $this->render('parts/newsletter.html.twig');
+    }
+    
+    /**
+     * @Route("/confirmation", name="app_confirm")
+     * 
+     */
+    public function confirm(): Response
+    {
+        return $this->render('newsletter/confirm.html.twig');
     }
 
     /**
      * @Route("/new", name="app_newsletter_new", methods={"GET", "POST"})
      */
-    public function new(Request $request, NewsletterRepository $newsletterRepository): Response
+    public function new(Request $request): Response
     {
         $newsletter = new Newsletter();
         $form = $this->createForm(NewsletterType::class, $newsletter);
         $form->handleRequest($request);
 
+        
         if ($form->isSubmitted() && $form->isValid()) {
-            $newsletterRepository->add($newsletter);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($newsletter);
+            $entityManager->flush();
+
             return $this->redirectToRoute('app_confirm', [], Response::HTTP_SEE_OTHER);
         }
+
 
         return $this->renderForm('newsletter/new.html.twig', [
             'newsletter' => $newsletter,
