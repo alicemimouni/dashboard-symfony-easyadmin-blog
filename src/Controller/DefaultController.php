@@ -4,11 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Newsletter;
+use App\Form\NewsletterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
+use Symfony\Component\HttpFoundation\Request;
+
 
 
 class DefaultController extends AbstractController
@@ -16,12 +20,26 @@ class DefaultController extends AbstractController
     /**
      * @Route("/", name="default")
      */
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository, Request $request): Response
     {
+        $newsletter = new Newsletter();
+        $form = $this->createForm(NewsletterType::class, $newsletter);
+        $form->handleRequest($request);
+
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($newsletter);
+            $entityManager->flush();
+
+            // return $this->redirectToRoute('default', [], Response::HTTP_SEE_OTHER);
+        }
+
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
             'articles' => $articleRepository->findAll(),
         ]);
+
     }
 
     // NAVBAR
@@ -42,12 +60,28 @@ class DefaultController extends AbstractController
     /**
      * @Route("/article-blog/{slug}", name="detail_article", methods={"GET", "POST"})
      */
-    public function getOneArticle(Article $article, ArticleRepository $articleRepository): Response
+    public function getOneArticle(Article $article, ArticleRepository $articleRepository, Request $request): Response
     {
+
+        $newsletter = new Newsletter();
+        $form = $this->createForm(NewsletterType::class, $newsletter);
+        $form->handleRequest($request);
+
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($newsletter);
+            $entityManager->flush();
+
+            // return $this->redirectToRoute('default', [], Response::HTTP_SEE_OTHER);
+        }
+
         return $this->render('article/detail_article.html.twig', [
             'article' => $article,
             'articles' => $articleRepository->findAll(),
         ]);
+
+        
     }
 
      // ALL PRODUCTS BY CATEGORY

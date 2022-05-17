@@ -8,6 +8,8 @@ let burger = document.getElementById('burger');
 let menu = document.querySelector('.navbar .menu');
 let nav = document.querySelector('.navbar');
 let title = document.querySelector('body .nav-top .header p');
+let search  = document.querySelector('body .search');
+let searchForm = document.querySelector('.search-div');
 
 
 window.onscroll = function() {
@@ -18,6 +20,7 @@ window.onscroll = function() {
     menu.style.display = "none";
     burger.classList.remove("open");
     title.style.margin = "0";
+    searchForm.style.display = "none";
 
   }
 

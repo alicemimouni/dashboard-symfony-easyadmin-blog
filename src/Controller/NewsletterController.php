@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Newsletter;
 use App\Form\NewsletterType;
 use App\Repository\NewsletterRepository;
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,16 +31,19 @@ class NewsletterController extends AbstractController
      * @Route("/confirmation", name="app_confirm")
      * 
      */
-    public function confirm(): Response
+    public function confirm(ArticleRepository $articleRepository): Response
     {
-        return $this->render('newsletter/confirm.html.twig');
+        return $this->render('newsletter/confirm.html.twig', [
+
+            'articles' => $articleRepository->findAll(),
+        ]);
     }
 
     /**
      * @Route("/new", name="app_newsletter_new", methods={"GET", "POST"})
      */
     public function new(Request $request): Response
-    {
+    { 
         $newsletter = new Newsletter();
         $form = $this->createForm(NewsletterType::class, $newsletter);
         $form->handleRequest($request);
@@ -52,7 +56,6 @@ class NewsletterController extends AbstractController
 
             return $this->redirectToRoute('app_confirm', [], Response::HTTP_SEE_OTHER);
         }
-
 
         return $this->renderForm('newsletter/new.html.twig', [
             'newsletter' => $newsletter,

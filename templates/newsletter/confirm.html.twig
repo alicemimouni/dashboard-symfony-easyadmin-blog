@@ -3,6 +3,10 @@
 {% block body %}
 <section class="section-congratulation">
 <p class="empty">Inscription réussie&nbsp;!</p>
-<a class="button" href=" {{ path('default') }} ">Retour au blog</a>
+{# <a class="button" href=" {{ path('default') }} ">Retour au blog</a> #}
 </section>
+
+{% block all_articles %}
+            {% include 'parts/all_articles.html.twig' %}
+    {% endblock all_articles %}
 {% endblock %}
