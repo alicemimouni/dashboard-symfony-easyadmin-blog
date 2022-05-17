@@ -10,6 +10,7 @@ let nav = document.querySelector('.navbar');
 let title = document.querySelector('body .nav-top .header p');
 let search  = document.querySelector('body .search');
 let searchForm = document.querySelector('.search-div');
+let newsletterValidator = document.querySelector('.section-congratulation');
 
 
 window.onscroll = function() {
@@ -21,6 +22,7 @@ window.onscroll = function() {
     burger.classList.remove("open");
     title.style.margin = "0";
     searchForm.style.display = "none";
+    newsletterValidator.style.display = "none";
 
   }
 

@@ -32,7 +32,7 @@ class DefaultController extends AbstractController
             $entityManager->persist($newsletter);
             $entityManager->flush();
 
-            // return $this->redirectToRoute('default', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_confirm', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('default/index.html.twig', [
@@ -73,7 +73,7 @@ class DefaultController extends AbstractController
             $entityManager->persist($newsletter);
             $entityManager->flush();
 
-            // return $this->redirectToRoute('default', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_confirm', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('article/detail_article.html.twig', [
