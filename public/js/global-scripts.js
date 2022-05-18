@@ -1,6 +1,7 @@
 // change navbar on scroll
 // #######################
 
+
 let navTop = document.querySelector('.nav-top');
 let elementTop = document.querySelector('.nav-top .top');
 let link = document.getElementById('link');
@@ -11,6 +12,8 @@ let title = document.querySelector('.nav-top .header p');
 let search  = document.querySelector('.nav-top .search img'); //search icon
 let searchForm = document.querySelector('.searchbar'); //searchbar
 let newsletterValidator = document.querySelector('.section-congratulation');
+let h1 = document.querySelector('h1');
+let h2 = document.querySelector('h2');
 
 
 window.onscroll = function() {
@@ -77,3 +80,51 @@ search.addEventListener('click', function() {
   }
 })
 
+// insert &nbsp; before carcteres ? or : or !
+// ###########################################
+
+function changeTitle() {
+
+  let text = h1.innerHTML;
+  
+  if(text.includes('?')) {
+  
+    document.querySelector('h1').innerHTML = text.replace("?", "&nbsp;?");
+  }
+  else if(text.includes('!')) {
+  
+    document.querySelector('h1').innerHTML = text.replace("!", "&nbsp;!");
+  }
+  else if(text.includes(':')) {
+  
+    document.querySelector('h1').innerHTML = text.replace(":", "&nbsp;:");
+    
+  }
+}
+
+
+function changeSubtitle() {
+
+  let text = h2.innerHTML;
+  
+  if(text.includes('?')) {
+  
+    document.querySelector('h2').innerHTML = text.replace("?", "&nbsp;?");
+  }
+  else if(text.includes('!')) {
+  
+    document.querySelector('h2').innerHTML = text.replace("§", "&nbsp;§");
+  }
+  else if(text.includes(':')) {
+  
+    document.querySelector('h2').innerHTML = text.replace(":", "&nbsp;:");
+    
+  }
+}
+
+changeTitle();
+
+document.querySelector('h2').forEach(function() {
+  
+  changeSubtitle();
+});
