@@ -1,15 +1,16 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-
 namespace App\Services;
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Entity\Newsletter;
+use App\Form\NewsletterType;
+use App\Repository\NewsletterRepository;
 
 
 class NewsletterService {
 
-    public function subscribe(): Response
+    public function subscribe()
     {
         $newsletter = new Newsletter();
         $form = $this->createForm(NewsletterType::class, $newsletter);

@@ -54,15 +54,28 @@
                 {% endfor %}
             {% endif %}
         {% endfor %}
+        {# if there is link in article #}
+        {% if article.links %}
+            {% for link in article.links %}
+            <div class="links">
+                <a href=" {{ link.url }} ">{{ link.title }}</a>
+            </div>
+            {% endfor %}
+        {% endif %}
     </div>
 </div>
-{# end section detail article #}
+
+{# share article #}
+{% block share %}
+    {% include 'parts/social_share.html.twig' %}
+{% endblock share %}
 
 {# newsletter #}
 {% block newsletter %}
    {% include 'parts/newsletter.html.twig' %}
 {% endblock %}
-{# end newsletter #}
+
+
 {# other articles #}
 {% block all_articles %}
     <h2 class="title-cards">À lire aussi</h2>
@@ -70,6 +83,7 @@
 {% endblock all_articles %}
 
 {% endblock body %}
+
  {% block javascripts %}
     {{ parent() }}
     <script type="text/javascript" src=" {{ asset('js/video.js') }} "></script>

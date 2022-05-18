@@ -100,6 +100,18 @@ class DefaultController extends AbstractController
         ]);
 
 
-    } 
+    }
+    
+    // SOCIAL SHARE
+    // ######
+     /**
+     * @Route("/share", name="app_share")
+     * 
+     */
+    public function share(): Response
+    {
+        return $this->render('parts/social_share.html.twig', [
+        ]);
+    }
 
 }

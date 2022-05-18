@@ -1,15 +1,33 @@
 .detail-article {
 
-    margin: 3rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
+    
     .content-article {
-
+        
         margin: 1rem;
         max-width: 980px;
+
+        .links {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            a {
+    
+                color: $color-secondary;
+                font-weight: 600;
+            }
+
+            a:hover {
+
+                text-decoration: underline;
+            }
+        }
 
         .introduction,
         .text-content,
@@ -58,5 +76,46 @@
             margin-bottom: 3rem;
         }
     }
+}
 
+// section social share
+// ####################
+
+.social-share {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+
+    div {
+
+        a {
+
+            margin-right: 1rem;
+
+            img {
+
+                width: 30px;
+            }
+
+            img:hover {
+
+                transform: scale(1.1);
+            }
+        }
+
+        a:last-child {
+
+            margin-right: 0;
+        }
+    }
+
+    p {
+
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
 }

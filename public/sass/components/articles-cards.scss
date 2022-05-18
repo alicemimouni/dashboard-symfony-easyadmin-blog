@@ -1,3 +1,4 @@
+
 .articles {
 
     margin-bottom: 3rem;
@@ -22,22 +23,21 @@
             img {
 
                 border-radius: 10px 10px 0 0;
-                height: 290px;
+                height: 250px;
             }
 
             .card-content {
 
                 padding: 1rem;
-                height: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: flex-start;
-                height: 220px;
 
                 h3 {
 
                     font-size: 1.1rem;
+                    margin-top: 0;
                 
 
                 }
@@ -99,6 +99,7 @@
 
             flex-direction: row;
             flex-wrap: wrap;
+            align-items: flex-start;
 
             .card {
 
@@ -140,12 +141,14 @@
     align-items: center;
     justify-content: flex-start;
     margin: 1rem 0;
+    flex-wrap: wrap;
 
     p {
 
         padding: 0.5rem;
-        margin: 0;
-        margin-right: 0.5rem;
+        margin: 0.5rem;
+        margin-left: 0;
+        margin-top: 0;
         background-color: $color-fourth;
         color: $color-secondary;
         border-radius: 3px;

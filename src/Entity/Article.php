@@ -64,10 +64,16 @@ class Article
      */
     private $image;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Link::class, inversedBy="articles")
+     */
+    private $links;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->sections = new ArrayCollection();
+        $this->links = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -209,6 +215,30 @@ class Article
     public function setImage(?Image $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Link>
+     */
+    public function getLinks(): Collection
+    {
+        return $this->links;
+    }
+
+    public function addLink(Link $link): self
+    {
+        if (!$this->links->contains($link)) {
+            $this->links[] = $link;
+        }
+
+        return $this;
+    }
+
+    public function removeLink(Link $link): self
+    {
+        $this->links->removeElement($link);
 
         return $this;
     }

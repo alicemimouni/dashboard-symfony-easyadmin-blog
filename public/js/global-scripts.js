@@ -7,9 +7,9 @@ let link = document.getElementById('link');
 let burger = document.getElementById('burger');
 let menu = document.querySelector('.navbar .menu');
 let nav = document.querySelector('.navbar');
-let title = document.querySelector('body .nav-top .header p');
-let search  = document.querySelector('body .search');
-let searchForm = document.querySelector('.search-div');
+let title = document.querySelector('.nav-top .header p');
+let search  = document.querySelector('.nav-top .search img'); //search icon
+let searchForm = document.querySelector('.searchbar'); //searchbar
 let newsletterValidator = document.querySelector('.section-congratulation');
 
 
@@ -58,3 +58,22 @@ link.addEventListener('click', function() {
         menu.style.display = "flex";
     }
 })
+
+// show searchbar on click on search icon
+//  #####################################
+
+search.addEventListener('click', function() {
+
+  // if search form is closed
+  if(searchForm.style.display = "none") {
+
+      searchForm.style.display = "flex";
+  }
+ 
+  // if search form is openned
+  else {
+      
+      menu.style.display = "none";
+  }
+})
+
