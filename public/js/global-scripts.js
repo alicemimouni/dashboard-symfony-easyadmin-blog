@@ -12,8 +12,9 @@ let title = document.querySelector('.nav-top .header p');
 let search  = document.querySelector('.nav-top .search img'); //search icon
 let searchForm = document.querySelector('.searchbar'); //searchbar
 let newsletterValidator = document.querySelector('.section-congratulation');
-let h1 = document.querySelector('h1');
-let h2 = document.querySelector('h2');
+let titleOne = document.querySelector('h1');
+let titleTwo = document.querySelectorAll('h2');
+let titleThree = document.querySelectorAll('h3');
 
 
 window.onscroll = function() {
@@ -82,49 +83,24 @@ search.addEventListener('click', function() {
 
 // insert &nbsp; before carcteres ? or : or !
 // ###########################################
+document.querySelectorAll('h2, h3, h1, p').forEach(element => {
 
-function changeTitle() {
-
-  let text = h1.innerHTML;
-  
-  if(text.includes('?')) {
-  
-    document.querySelector('h1').innerHTML = text.replace("?", "&nbsp;?");
-  }
-  else if(text.includes('!')) {
-  
-    document.querySelector('h1').innerHTML = text.replace("!", "&nbsp;!");
-  }
-  else if(text.includes(':')) {
-  
-    document.querySelector('h1').innerHTML = text.replace(":", "&nbsp;:");
+  if(element.innerHTML.includes('?')) {
     
+    console.log(element.innerHTML);
+    element.innerHTML = element.innerHTML.replace('?', '&nbsp?');  
   }
-}
 
-
-function changeSubtitle() {
-
-  let text = h2.innerHTML;
-  
-  if(text.includes('?')) {
-  
-    document.querySelector('h2').innerHTML = text.replace("?", "&nbsp;?");
-  }
-  else if(text.includes('!')) {
-  
-    document.querySelector('h2').innerHTML = text.replace("§", "&nbsp;§");
-  }
-  else if(text.includes(':')) {
-  
-    document.querySelector('h2').innerHTML = text.replace(":", "&nbsp;:");
+  if(element.innerHTML.includes('!')) {
     
+    console.log(element.innerHTML);
+    element.innerHTML = element.innerHTML.replace('!', '&nbsp!');   
   }
-}
 
-changeTitle();
-
-document.querySelector('h2').forEach(function() {
-  
-  changeSubtitle();
+  if(element.innerHTML.includes(':')) {
+    
+    console.log(element.innerHTML);
+    element.innerHTML = element.innerHTML.replace(':', '&nbsp:'); 
+  }
 });
+
