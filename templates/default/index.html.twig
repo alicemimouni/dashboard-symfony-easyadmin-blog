@@ -20,4 +20,12 @@
             {% include 'parts/all_articles.html.twig' %}
     {% endblock all_articles %}
 
+    {# newsletter #}
+    {% block newsletter %}
+        {% include 'parts/newsletter.html.twig' %}
+    {% endblock %}
+    {% block all_categories %}
+             {{ render(controller('App\\Controller\\DefaultController::allCategories')) }}
+    {% endblock all_categories %}
+
 {% endblock %}

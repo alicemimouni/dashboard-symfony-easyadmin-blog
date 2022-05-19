@@ -84,10 +84,10 @@ class DefaultController extends AbstractController
         
     }
 
-     // ALL PRODUCTS BY CATEGORY
+     // ALL PRODUCTS FOR ONE CATEGORY
     // #########################
     /**
-     * @Route("/articles-{slug}", name="articles_by_category", methods={"GET"})
+     * @Route("/articles-{slug}", name="articles_for_one_category", methods={"GET"})
      * 
      */
     public function findByCategory(ArticleRepository $articleRepository, Category $category, CategoryRepository $categoryRepository): Response
@@ -114,4 +114,19 @@ class DefaultController extends AbstractController
         ]);
     }
 
+     // ALL ARTICLES ORDER BY CATEGORIES
+    // ###################################
+    /**
+     * @Route("/articles-order-by-categories", name="articles_by_category", methods={"GET"})
+     * 
+     */
+    public function allCategories(CategoryRepository $categoryRepository): Response
+    {
+
+        return $this->render('article/all_categories.html.twig', [
+            'categories' => $categoryRepository->findAll(),
+        ]);
+
+
+    }
 }

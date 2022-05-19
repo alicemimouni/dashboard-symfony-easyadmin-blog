@@ -18,7 +18,8 @@
             flex-direction: column;
             background-color: $color-light-grey;
             border-radius: 10px;
-            margin-bottom: 2rem;
+            margin: 2rem 0;
+            transition: 1s;
 
             img {
 
@@ -47,6 +48,11 @@
                     margin: 1rem 0;
                 }
             }
+        }
+
+        .card:hover {
+
+            transform: scale(1.1);
         }
     }
 
@@ -160,4 +166,12 @@
     color: $color-grey;
     font-weight: 600;
     font-size: 0.9rem;
+}
+
+.categories-section {
+
+    h2 {
+
+        margin-bottom: 0;
+    }
 }

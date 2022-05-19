@@ -1,0 +1,27 @@
+{% for category in categories %}
+
+<section class="articles categories-section">
+    <h2 class="title-cards">Catégorie {{ category.name }} </h2>
+    <div class="cards-container">
+        {# cards #}
+        {% for article in category.articles %}
+        <div class="card">
+            <img src="{{ asset('img/'~ article.image.url) }}" class="card-img-top" alt=" {{ article.image.alt }} "
+                width="100%">
+            <div class="card-content">
+                <div class="categories">
+                    {% for category in article.categories %}
+                    <p class="card-title fs-6"> {{ category.name }} </p>
+                    {% endfor %}
+                </div>
+                <h3> {{ article.title }} </h3>
+                <a href="{{ path('detail_article', {'slug': article.slug }) }}" class="button">Voir
+                    l'article</a>
+            </div>
+        </div>
+        {% endfor %}
+        {# end cards #}
+    </div>
+</section>
+
+{% endfor %}
