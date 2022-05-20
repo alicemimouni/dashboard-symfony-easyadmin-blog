@@ -2,18 +2,21 @@
 <html>
 
 <head>
-
+    {% block meta %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="application-name" content="Web Création - Le Blog">
     <meta name="apple-mobile-web-app-title" content="Web Création - Le Blog">
     <meta name="robots" content="index, follow">
-    <meta name="publisher" content="Alice Richardeau"/>
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap" rel="stylesheet">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="publisher" content="Alice Richardeau" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@500&display=swap">
+    {% endblock meta %}
     {% block stylesheets %}
     <link href=" {{ asset('style.css') }} " rel="stylesheet" />
-    {% endblock %}
+    {% endblock stylesheets %}
 
 
 </head>
@@ -33,7 +36,7 @@
     {% endblock footer %}
 
     {% block javascripts %}
-        <script type="text/javascript" src=" {{ asset('js/global-scripts.js') }} "></script>
+    <script type="text/javascript" src=" {{ asset('js/global-scripts.js') }} "></script>
     {% endblock %}
 </body>
 

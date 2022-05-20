@@ -19,7 +19,7 @@
             <a id="link" href="#"><span id="burger"></span></a>
             <ul class="menu">
                 {% for category in categories %}
-                    <li><a href=" {{ path('articles_by_category', {'slug': category.slug }) }} "> {{ category.name }} </a></li>
+                    <li><a href=" {{ path('articles_for_one_category', {'slug': category.slug }) }} ">{{ category.name }}</a></li>
                 {% endfor %}
             </ul>
         </div>

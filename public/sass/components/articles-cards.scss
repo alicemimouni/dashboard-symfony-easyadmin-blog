@@ -19,7 +19,7 @@
             background-color: $color-light-grey;
             border-radius: 10px;
             margin: 2rem 0;
-            transition: 1s;
+            transition: 0.2s;
 
             img {
 
@@ -52,7 +52,7 @@
 
         .card:hover {
 
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
     }
 

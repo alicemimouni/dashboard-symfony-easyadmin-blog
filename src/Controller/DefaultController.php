@@ -54,53 +54,6 @@ class DefaultController extends AbstractController
             'categories' => $categoryRepository->findAll()
         ]);
     }
-
-    // DETAIL ONE article
-    // ####################
-    /**
-     * @Route("/article-blog/{slug}", name="detail_article", methods={"GET", "POST"})
-     */
-    public function getOneArticle(Article $article, ArticleRepository $articleRepository, Request $request): Response
-    {
-
-        $newsletter = new Newsletter();
-        $form = $this->createForm(NewsletterType::class, $newsletter);
-        $form->handleRequest($request);
-
-        
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($newsletter);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_confirm', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('article/detail_article.html.twig', [
-            'article' => $article,
-            'articles' => $articleRepository->findAll(),
-        ]);
-
-        
-    }
-
-     // ALL PRODUCTS FOR ONE CATEGORY
-    // #########################
-    /**
-     * @Route("/articles-{slug}", name="articles_for_one_category", methods={"GET"})
-     * 
-     */
-    public function findByCategory(ArticleRepository $articleRepository, Category $category, CategoryRepository $categoryRepository): Response
-    {
-        $categories = $categoryRepository->findBy(['id' => $category]);
-
-        return $this->render('article/articles_by_category.html.twig', [
-            'articles' => $articleRepository->findAll(),
-            'categories' => $categories,
-        ]);
-
-
-    }
     
     // SOCIAL SHARE
     // ######
@@ -123,10 +76,52 @@ class DefaultController extends AbstractController
     public function allCategories(CategoryRepository $categoryRepository): Response
     {
 
-        return $this->render('article/all_categories.html.twig', [
+        return $this->render('parts/all_categories.html.twig', [
             'categories' => $categoryRepository->findAll(),
         ]);
+    }
+
+      // ALL PRODUCTS FOR ONE CATEGORY
+    // #########################
+    /**
+     * @Route("/{slug}", name="articles_for_one_category", methods={"GET"})
+     * 
+     */
+    public function findByCategory(ArticleRepository $articleRepository, Category $category, CategoryRepository $categoryRepository): Response
+    {
+        $categories = $categoryRepository->findBy(['id' => $category]);
+
+        return $this->render('article/articles_by_category.html.twig', [
+            'articles' => $articleRepository->findAll(),
+            'categories' => $categories,
+        ]);
+    }
 
 
+    // DETAIL ONE article
+    // ####################
+    /**
+     * @Route("/post/{slug}", name="detail_article", methods={"GET", "POST"})
+     */
+    public function getOneArticle(Article $article, ArticleRepository $articleRepository, Request $request): Response
+    {
+
+        $newsletter = new Newsletter();
+        $form = $this->createForm(NewsletterType::class, $newsletter);
+        $form->handleRequest($request);
+
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($newsletter);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_confirm', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('article/detail_article.html.twig', [
+            'article' => $article,
+            'articles' => $articleRepository->findAll(),
+        ]);  
     }
 }
