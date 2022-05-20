@@ -1,9 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
-{% block title %}
-{{ parent() }}
-{% endblock %}
+<title>Web Création - le Blog</title>
+<meta name="description" content="Blog d'astuces et tutos pour le web, webdesign, site internet, référencement, découvrez nos articles." />
+<link rel="canonical" href="http://127.0.0.1:8000" />
+<meta name="Language" CONTENT="fr" />
+<meta property="og:title" content="Web Création - le Blog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://127.0.0.1:8000">
+<meta property="og:image" content="">
+<meta property="og:description" content="Blog d'astuces et tutos pour le web, webdesign, site internet, référencement, découvrez nos articles.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Web Création - Le Blog">
 {% block stylesheets %}
 {{ parent() }}
 {% endblock stylesheets %}
