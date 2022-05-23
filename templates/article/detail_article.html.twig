@@ -26,7 +26,7 @@
     {# detail article #}
     <div class="content-article">
         <h1> {{ article.title }} </h1>
-        <img class="image-article" width="100%" src=" {{ asset('../../img/' ~ article.image.url) }} "
+        <img class="image-article" width="90%" src=" {{ asset('../../img/' ~ article.image.url) }} "
             alt=" {{ article.image.alt }} " />
 
         <p class="date-article"> {{ article.date|date('d/m/Y') }} </p>
@@ -65,7 +65,7 @@
         {% if section.videos %}
         {% for video in section.videos %}
         <div class="video">
-            <video loop muted poster=" {{ asset('img/'~ video.poster ) }} " width="100%">
+            <video loop muted poster=" {{ asset('img/'~ video.poster ) }} " width="90%">
                 <source src=" {{ asset('videos/'~ video.url) }} " type="video/mp4">
             </video>
             <span class="play"><img src=" {{ asset('img/play-video.svg') }} " alt="Lecture"></span>

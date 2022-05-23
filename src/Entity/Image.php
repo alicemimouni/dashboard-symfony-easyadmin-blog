@@ -39,6 +39,11 @@ class Image
      */
     private $articles;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Category::class, mappedBy="image", cascade={"persist", "remove"})
+     */
+    private $category;
+
     public function __construct()
     {
         $this->sections = new ArrayCollection();
@@ -127,6 +132,28 @@ class Image
                 $article->setImage(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($category === null && $this->category !== null) {
+            $this->category->setCategory(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($category !== null && $category->getCategory() !== $this) {
+            $category->setCategory($this);
+        }
+
+        $this->category = $category;
 
         return $this;
     }

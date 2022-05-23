@@ -11,11 +11,12 @@
     background-color: $color-primary;
 }
 
-.button-outline-hover {
 
-    border: 1px solid $color-secondary;
-}
-.button-outline-hover:hover {
+footer .container .bloc .newsletter-form form {
 
-    border-color:  white;
+    .button-hover-black:hover {
+    
+        background-color: black;
+    }
 }
+

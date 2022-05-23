@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\SearchType;
 
@@ -14,7 +15,7 @@ class SearchController extends AbstractController
     /**
      * @Route("/recherche", name="app_search")
      */
-    public function search(ArticleRepository $articleRepository, Request $request): Response
+    public function search(ArticleRepository $articleRepository, Request $request, CategoryRepository $categoryRepository): Response
     {
 
         $form =  $this->createForm(SearchType::class);
@@ -35,7 +36,8 @@ class SearchController extends AbstractController
         //return all articles
         return $this->render('search/index.html.twig', [
             'form' => $form->createView(),
-            'articles' => $articles
+            'articles' => $articles,
+            'categories' => $categoryRepository->findAll(),
         ]);
     }
 }

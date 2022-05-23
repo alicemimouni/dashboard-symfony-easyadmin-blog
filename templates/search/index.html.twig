@@ -6,14 +6,14 @@
 
 <h2 class="title-cards">Recherchez un article</h2>
 <div class="searchbar">
-{{ form_start(form) }}
-{{ form_end(form) }}
+    {{ form_start(form) }}
+    {{ form_end(form) }}
 </div>
 
 {% if form.vars.submitted %}
-    {% if articles == false %}
-        <p class="empty">Aucun article trouvé</p>
-    {% endif %}
+{% if articles == false %}
+<p class="empty">Aucun article trouvé</p>
+{% endif %}
 {% endif %}
 
 {# section all articles #}
@@ -22,7 +22,8 @@
         {# cards #}
         {% for article in articles %}
         <div class="card">
-            <img src="{{ asset('img/'~ article.image.url) }}" class="card-img-top" alt=" {{ article.image.alt }} " width="100%">
+            <img src="{{ asset('img/'~ article.image.url) }}" class="card-img-top" alt=" {{ article.image.alt }} "
+                width="100%">
             <div class="card-content">
                 <div class="categories">
                     {% for category in article.categories %}
@@ -42,8 +43,12 @@
 
 {# newsletter #}
 {% block newsletter %}
-   {% include 'parts/newsletter.html.twig' %}
-{% endblock %}
+{% include 'parts/newsletter.html.twig' %}
+{% endblock newsletter %}
 {# end newsletter #}
+{% block popular %}
+{% include 'parts/popular.html.twig' %}
+{% endblock popular %}
 
-{% endblock %}
+
+{% endblock body %}

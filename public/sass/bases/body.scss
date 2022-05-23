@@ -71,8 +71,7 @@ body {
     h1 {
 
         font-size: 1.5rem;
-        margin-bottom: 2rem;
-
+        margin: 2rem 1rem;
     }
 
     h2 {
@@ -84,6 +83,10 @@ body {
 
         font-weight: 600;
     }
+
+    // ###########
+    // ANIMATIONS 
+    // ###########
 
     // show element with transition
     .load {
@@ -129,7 +132,15 @@ body {
         }
     }
 
+    // transform scale 1.1
 
+    .transform-scale:hover {
+
+        transform: scale(1.05);
+    }
+
+
+    // ################
     // media queries
     // #############
     @media screen and (min-width: 770px) {

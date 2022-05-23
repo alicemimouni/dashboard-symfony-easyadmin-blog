@@ -70,9 +70,7 @@ body {
     }
 }
 
-// search bar
+input:focus {
 
-.searchbar {
-
-    // display: none;
+    outline: none;
 }

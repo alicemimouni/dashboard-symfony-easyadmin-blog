@@ -47,13 +47,19 @@
             cursor: pointer;
             z-index: 1;
             position: relative;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             
             video {
                 
                 border: 5px solid $color-light-grey;
                 transition: 1s;
-            
+                margin: 2rem 0;
+
             }
+
             span.play {
 
                 position: absolute;

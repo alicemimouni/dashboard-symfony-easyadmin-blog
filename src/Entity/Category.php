@@ -34,6 +34,11 @@ class Category
      */
     private $slug;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Image::class, inversedBy="category", cascade={"persist", "remove"})
+     */
+    private $image;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -91,6 +96,18 @@ class Category
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage(?Image $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

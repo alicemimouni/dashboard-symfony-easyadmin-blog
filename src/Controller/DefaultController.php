@@ -81,10 +81,23 @@ class DefaultController extends AbstractController
         ]);
     }
 
-      // ALL PRODUCTS FOR ONE CATEGORY
+    // PART POPULAR
+    // #############
+     /**
+     * @Route("/popular", name="app_popular", methods={"GET"})
+     * 
+     */
+    public function popularCategories(CategoryRepository $categoryRepository): Response
+    {
+        return $this->render('parts/popular.html.twig', [
+            'categories' => $categoryRepository->findAll()
+        ]);
+    }
+
+    // ALL PRODUCTS FOR ONE CATEGORY
     // #########################
     /**
-     * @Route("/{slug}", name="articles_for_one_category", methods={"GET"})
+     * @Route("/categorie/{slug}", name="articles_for_one_category", methods={"GET"})
      * 
      */
     public function findByCategory(ArticleRepository $articleRepository, Category $category, CategoryRepository $categoryRepository): Response
