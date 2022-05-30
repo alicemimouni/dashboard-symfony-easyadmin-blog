@@ -1,6 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mentions légales{% endblock %}
+{% block head %}
+{% block meta %}
+{{ parent() }}
+<meta name="Language" CONTENT="fr" />
+<title>Mentions Légales | Création Web - Le Blog</title>
+<meta name="description"
+    content="Blog d'astuces pour le web, web design, site internet, référencement, mentions légales." />
+<link rel="canonical" href="http://127.0.0.1:8000/mentions-legales" />
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mentions Légales | Création Web - Le Blog">
+<meta property="og:url" content="http://127.0.0.1:8000/mentions-legales">
+<meta property="og:description"
+    content="Blog d'astuces pour le web, web design, site internet, référencement, mentions légales.">
+{% endblock %}
+{% endblock head %}
 
 {% block body %}
 <div class="legal">

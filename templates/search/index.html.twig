@@ -1,6 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Rechercher un article{% endblock %}
+{% block head %}
+{% block meta %}
+{{ parent() }}
+<meta name="Language" CONTENT="fr" />
+<title>Recherche | Création Web - Le Blog</title>
+<meta name="description" content="Blog d'astuces pour le web, web design, site internet, référencement, rechercher un article." />
+<link rel="canonical" href="http://127.0.0.1:8000/recherche" />
+<meta property="og:type" content="article">
+<meta property="og:title" content="Recherche | Création Web - Le Blog">
+<meta property="og:url" content="http://127.0.0.1:8000/recherche">
+<meta property="og:description"
+    content="Blog d'astuces pour le web, web design, site internet, référencement, rechercher un article.">
+{% endblock %}
+{% endblock head %}
 
 {% block body %}
 

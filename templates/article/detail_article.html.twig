@@ -4,18 +4,15 @@
 {% block meta %}
 {{ parent() }}
 <meta name="Language" CONTENT="fr" />
-<meta property="og:type" content="article">
 <title>{{ article.title }} | Création Web - Le Blog</title>
 <meta name="description"
     content="Blog d'astuces pour le web, web design, site internet, référencement, lire l'article {{ article.title }}." />
 <link rel="canonical" href="http://127.0.0.1:8000/{{ article.slug }}" />
 <meta property="og:title" content="{{ article.title }} | Création Web - Le Blog">
+<meta property="og:type" content="article">
 <meta property="og:url" content="http://127.0.0.1:8000/{{ article.slug }}">
 <meta property="og:description"
     content="Blog d'astuces et tutos pour le web, web design, site internet, référencement, lire l'article {{ article.title }}.">
-<meta property="og:image" content="">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:site_name" content="Web Création - Le Blog">
 {% endblock %}
 {% endblock head %}
 
@@ -26,7 +23,7 @@
     {# detail article #}
     <div class="content-article">
         <h1> {{ article.title }} </h1>
-        <img class="image-article" width="90%" src=" {{ asset('../../img/' ~ article.image.url) }} "
+        <img class="image-article" width="100%" src=" {{ asset('../../img/' ~ article.image.url) }} "
             alt=" {{ article.image.alt }} " />
 
         <p class="date-article"> {{ article.date|date('d/m/Y') }} </p>
