@@ -1,46 +1,64 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
+
 {% block meta %}
 {{ parent() }}
 <meta name="Language" CONTENT="fr" />
 {% for category in categories %}
 <title>{{ category.name }} | Création Web - Le Blog</title>
-<meta name="description" content="Blog d'astuces pour le web, web design, site internet, référencement, découvrez les articles de la categorie {{ category.name }}." />
+<meta name="description"
+    content="Blog d'astuces pour le web, web design, site internet, référencement, découvrez les articles de la categorie {{ category.name }}." />
 <link rel="canonical" href="http://127.0.0.1:8000/{{ category.slug }}" />
 <meta property="og:title" content="{{ category.name }} | Création Web - Le Blog">
 <meta property="og:url" content="http://127.0.0.1:8000/{{ category.slug }}">
-<meta property="og:description" content="Blog d'astuces et tutos pour le web, web design, site internet, référencement, découvrez les articles {{ category.name }}.">
+<meta property="og:description"
+    content="Blog d'astuces et tutos pour le web, web design, site internet, référencement, découvrez les articles {{ category.name }}.">
 {% endfor %}
 <meta property="og:type" content="article">
 {% endblock %}
+
 {% endblock head %}
 
 {% block body %}
-    <section class="articles">
-        {% for category in categories %}
-        <h2 class="title-cards"> {{ category.name }} </h2>
-        <div class="cards-container">
-                {% for article in category.articles %}
-                {# section all articles #}
-                        {# cards #}
-                        <div class="card">
-                            <img src="{{ asset('img/'~ article.image.url) }}" class="card-img-top" alt=" {{ article.image.alt }} " width="100%">
-                            <div class="card-content">
-                                <div class="categories">
-                            {% for category in article.categories %}
-                                    <p class="card-title fs-6"> {{ category.name }} </p>
-                            {% endfor %}
-                                </div>
-                                <h3> {{ article.title }} </h3>
-                                <a href="{{ path('detail_article', {'slug': article.slug }) }}" class="button">Voir
-                                    l'article</a>
-                            </div>
-                        </div>
-                {% endfor %}
-                {# end cards #}
-            {# end section all articles #}
-            {% endfor %}
+
+<section class="articles">
+    {% for category in categories %}
+    <h1 class="title-cards"> {{ category.name }} </h1>
+    <div class="cards-container">
+        {% for article in category.articles %}
+        {# section all articles #}
+        {# cards #}
+        <div class="card">
+            <img src="{{ asset('img/'~ article.image.url) }}" class="card-img-top" alt=" {{ article.image.alt }} "
+                width="100%">
+            <div class="card-content">
+                <div class="categories">
+                    {% for category in article.categories %}
+                    <p class="card-title fs-6"> {{ category.name }} </p>
+                    {% endfor %}
+                </div>
+                <h3> {{ article.title }} </h3>
+                <a href="{{ path('detail_article', {'slug': article.slug }) }}" class="button">Voir
+                    l'article</a>
+            </div>
         </div>
-    </section>
-{% endblock %}
+        {% endfor %}
+        {# end cards #}
+        {# end section all articles #}
+        {% endfor %}
+    </div>
+</section>
+
+{# newsletter #}
+{% block newsletter %}
+{% include 'parts/newsletter.html.twig' %}
+{% endblock newsletter %}
+
+{# all articles #}
+{% block all_articles %}
+<h2 class="title-cards">Articles populaires</h2>
+{% include 'parts/all_articles.html.twig' %}
+{% endblock all_articles %}
+
+{% endblock body %}

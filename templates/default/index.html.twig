@@ -1,39 +1,47 @@
 {% extends 'base.html.twig' %}
 
 {% block head %}
+
 {% block meta %}
-    {{ parent() }}
+{{ parent() }}
 <title>Création web- le Blog</title>
-<meta name="description" content="Blog d'astuces et tutos pour le web, web design, site internet, référencement, découvrez nos articles." />
+<meta name="description"
+    content="Blog d'astuces et tutos pour le web, web design, site internet, référencement, découvrez nos articles." />
 <link rel="canonical" href="http://127.0.0.1:8000" />
 <meta name="Language" CONTENT="fr" />
 <meta property="og:title" content="Web Création - le Blog">
 <meta property="og:type" content="website">
 <meta property="og:url" content="http://127.0.0.1:8000">
-<meta property="og:description" content="Blog d'astuces et tutos pour le web, web design, site internet, référencement, découvrez nos articles.">
+<meta property="og:description"
+    content="Blog d'astuces et tutos pour le web, web design, site internet, référencement, découvrez nos articles.">
 {% endblock meta %}
 {% block stylesheets %}
 {{ parent() }}
 {% endblock stylesheets %}
+
 {% endblock head %}
 
 {% block header %}
-    {{ parent() }}
+{{ parent() }}
 {% endblock header %}
 
 {% block body %}
 
-    <h1 class="home">Blog d'astuces pour le web</h1>
-    {% block all_articles %}
-            {% include 'parts/all_articles.html.twig' %}
-    {% endblock all_articles %}
+<h1 class="home">Blog d'astuces pour le web</h1>
 
-    {# newsletter #}
-    {% block newsletter %}
-        {% include 'parts/newsletter.html.twig' %}
-    {% endblock %}
-    {% block all_categories %}
-             {{ render(controller('App\\Controller\\DefaultController::allCategories')) }}
-    {% endblock all_categories %}
+{# all articles #}
+{% block all_articles %}
+{% include 'parts/all_articles.html.twig' %}
+{% endblock all_articles %}
 
+{# newsletter #}
+{% block newsletter %}
+{% include 'parts/newsletter.html.twig' %}
 {% endblock %}
+
+{# all categories #}
+{% block all_categories %}
+{{ render(controller('App\\Controller\\DefaultController::allCategories')) }}
+{% endblock all_categories %}
+
+{% endblock body%}
