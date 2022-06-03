@@ -16,6 +16,10 @@
         "build": "encore production --progress",
         "sass": "sass public/sass/style.scss public/style.css --watch --style compressed"
     },
+    "engines": {
+        "node": "v16.14.0",
+        "npm": "8.3.1"
+    },
     "dependencies": {
         "sass": "^1.51.0"
     }
