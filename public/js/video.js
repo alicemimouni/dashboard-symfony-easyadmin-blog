@@ -28,4 +28,7 @@ function playVideo() {
   })
 }
 
-playVideo();
+if (video) {
+
+  playVideo();
+}

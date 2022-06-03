@@ -25,8 +25,15 @@ window.onscroll = function() {
     menu.style.display = "none";
     burger.classList.remove("open");
     title.style.margin = "0";
-    searchForm.style.display = "none";
-    newsletterValidator.style.display = "none";
+    if (searchForm) {
+
+      searchForm.style.display = "none";
+    }
+
+    if(newsletterValidator) {
+
+      newsletterValidator.style.display = "none";
+    }
 
   }
 
