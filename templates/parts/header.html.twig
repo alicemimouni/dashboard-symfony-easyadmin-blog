@@ -19,13 +19,12 @@
         <div class="navbar">
             <!-- menu -->
             <a id="link" href="#"><span id="burger"></span></a>
-            <ul class="menu">
-                {% for category in categories %}
-                <li><a
-                        href=" {{ path('articles_for_one_category', {'slug': category.slug }) }} ">{{ category.name }}</a>
-                </li>
-                {% endfor %}
-            </ul>
         </div>
+        <ul class="menu">
+            {% for category in categories %}
+            <li><a href=" {{ path('articles_for_one_category', {'slug': category.slug }) }} ">{{ category.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </div>

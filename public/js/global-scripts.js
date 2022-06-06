@@ -6,10 +6,10 @@ let elementTop = document.querySelector('.top');
 let navTop = document.querySelector('.header');
 let link = document.getElementById('link');
 let burger = document.getElementById('burger');
-let menu = document.querySelector('.navbar .menu');
+let menu = document.querySelector('.menu');
 let nav = document.querySelector('.navbar');
-let title = document.querySelector('.nav-top .header p');
-let search  = document.querySelector('.nav-top .search img'); //search icon
+let title = document.querySelector('.header p');
+let search  = document.querySelector('.search img'); //search icon
 let searchForm = document.querySelector('.searchbar'); //searchbar
 let newsletterValidator = document.querySelector('.section-congratulation');
 let titleOne = document.querySelector('h1');
@@ -21,7 +21,7 @@ window.onscroll = function() {
 
   if (document.documentElement.scrollTop > 80) {
 
-    elementTop.style.top = '-71.7167px';
+    elementTop.style.top = '-79.7167px';
     navTop.style.top = '0';
     menu.style.display = "none";
     burger.classList.remove("open");
@@ -42,7 +42,7 @@ window.onscroll = function() {
   else {
 
       elementTop.style.top = '0px';
-      navTop.style.top = '71.7167px';
+      navTop.style.top = '79.7167px';
       title.style.margin = "2rem 0";
 
     
@@ -60,7 +60,6 @@ link.addEventListener('click', function() {
         menu.style.display = "none";
         burger.classList.remove("open");
         menu.classList.remove('load');
-        nav.classList.remove('load');
 
     }
     // if menu is closed
@@ -68,7 +67,6 @@ link.addEventListener('click', function() {
         
         burger.classList.add('open');
         menu.classList.add('load');
-        nav.classList.add('load');
         menu.style.display = "flex";
     }
 })
