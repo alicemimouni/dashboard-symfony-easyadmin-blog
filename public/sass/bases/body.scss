@@ -51,10 +51,11 @@ body {
         text-align: left;
         margin-left: 7%;
     }
-
+    
     .title-cards,
     .home {
-
+        
+        margin-top: 5rem;
         font-size: 1.8rem;
         text-transform: uppercase;
         margin-bottom: 1rem;
@@ -68,16 +69,6 @@ body {
         font-family: $font-titles;
     }
 
-    h1 {
-
-        font-size: 1.5rem;
-        margin: 2rem 1rem;
-    }
-
-    h2 {
-
-        font-size: 1.5rem;
-    }
 
     .introduction {
 
