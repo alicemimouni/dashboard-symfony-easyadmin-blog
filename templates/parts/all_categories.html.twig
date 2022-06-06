@@ -1,7 +1,7 @@
 {% for category in categories %}
 
 <section class="articles categories-section">
-    <h2 class="title-cards">Catégorie {{ category.name }} </h2>
+    <h2 class="title-cards">{{ category.name }}</h2>
     <div class="cards-container">
         {# cards #}
         {% for article in category.articles %}
