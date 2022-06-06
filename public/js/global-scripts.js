@@ -2,8 +2,8 @@
 // #######################
 
 
-let navTop = document.querySelector('.nav-top');
-let elementTop = document.querySelector('.nav-top .top');
+let elementTop = document.querySelector('.top');
+let navTop = document.querySelector('.header');
 let link = document.getElementById('link');
 let burger = document.getElementById('burger');
 let menu = document.querySelector('.navbar .menu');
@@ -19,18 +19,20 @@ let titleThree = document.querySelectorAll('h3');
 
 window.onscroll = function() {
 
-  if(document.documentElement.scrollTop > 80) {
+  if (document.documentElement.scrollTop > 80) {
 
-    elementTop.style.display = 'none';
+    elementTop.style.top = '-71.7167px';
+    navTop.style.top = '0';
     menu.style.display = "none";
     burger.classList.remove("open");
     title.style.margin = "0";
+
     if (searchForm) {
 
       searchForm.style.display = "none";
     }
 
-    if(newsletterValidator) {
+    if (newsletterValidator) {
 
       newsletterValidator.style.display = "none";
     }
@@ -39,7 +41,8 @@ window.onscroll = function() {
 
   else {
 
-      elementTop.style.display = 'flex';
+      elementTop.style.top = '0px';
+      navTop.style.top = '71.7167px';
       title.style.margin = "2rem 0";
 
     
