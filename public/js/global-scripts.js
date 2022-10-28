@@ -1,9 +1,6 @@
-// change navbar on scroll
-// #######################
 
-
-let elementTop = document.querySelector('.top');
-let navTop = document.querySelector('.header');
+let elementTop = document.querySelector('.top-header');
+let navTop = document.querySelector('.top-header .header');
 let link = document.getElementById('link');
 let burger = document.getElementById('burger');
 let menu = document.querySelector('.menu');
@@ -16,7 +13,8 @@ let titleOne = document.querySelector('h1');
 let titleTwo = document.querySelectorAll('h2');
 let titleThree = document.querySelectorAll('h3');
 
-
+// change navbar on scroll
+// #######################
 window.onscroll = function() {
 
   if (document.documentElement.scrollTop >= 80) {
@@ -27,22 +25,15 @@ window.onscroll = function() {
     burger.classList.remove("open");
 
     if (searchForm) {
-
       searchForm.style.display = "none";
     }
-
     if (newsletterValidator) {
-
       newsletterValidator.style.display = "none";
     }
-
   }
-
   else {
-
       elementTop.style.top = '0px';
       navTop.style.top = '79.7167px';
-    
   }
 }
 

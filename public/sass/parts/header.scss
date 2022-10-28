@@ -1,17 +1,22 @@
-.top,
-.header {
-
+.top-header .top,
+.top-header .header, .top-header {
     background-color: $color-primary;
+}
+.top-header {
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    z-index: 5;
+}
+
+.top-header .top,
+.top-header .header {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: sticky;
-    position: -webkit-sticky;
     width: 100%;
-    z-index: 5;
 
     .bloc {
-
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -19,9 +24,7 @@
         width: 100%;
         max-width: 1280px;
         .logo {
-
             img {
-
                 width: 150px;
                 margin: 0.5rem;
             }
@@ -30,23 +33,15 @@
 }
 
 .top {
-
-    top: 0;
-
+    // top: 0;
     .bloc {
-
         margin: 1.7rem;
         margin-bottom: 1.2rem;
-
         .button {
-
             font-size: 0.8rem;
         }
-
         .search {
-
             img {
-
                 width: 30px;
             }
         }
@@ -55,15 +50,12 @@
 }
 
 .header {
-
     top: 79.7167px;
 
     .bloc {
-
         margin: 0 1rem;
 
         p {
-
             color: white;
             font-size: 1.5rem;
             margin: 1.2rem 0;
@@ -72,10 +64,8 @@
         }
 
         .navbar {
-
             // burger menu
             #link {
-
                 width: 25px;
                 height: 25px;
                 display: flex;
@@ -84,6 +74,8 @@
                 padding: 0.5rem;
                 margin: 0.5rem;
                 border-radius: 100%;
+                position: relative;
+                z-index: 6;
 
                 // burger menu
                 // middle bar
@@ -142,7 +134,6 @@
 
         // ul
         .menu {
-
             display: none;
             flex-direction: column;
             padding-left: 0;
@@ -159,27 +150,23 @@
             transition: top 0.3s;
 
             li {
-
                 padding: 0.5rem 0;
-
                 width: 100%;
                 display: flex;
                 justify-content: center;
 
                 a {
-
                     text-align: center;
                     margin-bottom: 1rem;
                 }
 
-                a:hover {
+               a:hover {
                     font-weight: 700;
                 }
 
             }
 
             li:last-child {
-
                 margin-bottom: 2rem;
             }
 
@@ -189,71 +176,35 @@
 }
 
 @media screen and (min-width: 500px) {
-
     .header {
-
         .bloc {
-
             p {
-
                 font-size: 2rem;
             }
-
-            // .logo {
-
-            //     img {
-
-            //         width: 60px;
-            //     }
-            // }
-
             .menu {
-
                 top: 74.4px;
 
                 li a {
-
                     font-size: 1.2rem;
                 }
             }
-
         }
-
-
     }
-
 }
 
 @media screen and (min-width: 800px) {
 
     .header {
-
         .bloc {
-
             p {
-
                 font-size: 3rem;
             }
-
             .menu {
-
                 top: 92.4px;
-
                 li a {
-
                     font-size: 1.5rem;
                 }
             }
-
         }
-
-        // .logo {
-
-        //     img {
-
-        //         width: 80px;
-        //     }
-        // }
     }
-
 }

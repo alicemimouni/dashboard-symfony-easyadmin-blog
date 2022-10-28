@@ -1,5 +1,6 @@
-{# BUTTON AND SEARCH #}
-<div class="top">
+<div class="top-header">
+    {# BUTTON AND SEARCH #}
+    <div class="top">
     <div class="bloc">
         <a class="button button-hover-black" href="https://bforweb.fr">
             Contactez un développeur
@@ -7,10 +8,10 @@
         <a href=" {{ path('app_search') }} " class="search"><img src=" {{ asset('/img/search.svg') }} "
                 alt="Rechercher un produit"></a>
     </div>
-</div>
+    </div>
 
-{# TITLE AND BURGER MENU #}
-<div class="header">
+    {# TITLE AND BURGER MENU #}
+    <div class="header">
     <div class="bloc">
         <a class="logo" href=" {{ path('default') }} ">
             <img src=" {{ asset('/img/logo-bforweb.png') }} " alt="Logo" width="50px" />
@@ -26,5 +27,6 @@
             </li>
             {% endfor %}
         </ul>
+    </div>
     </div>
 </div>
