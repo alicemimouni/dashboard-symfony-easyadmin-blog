@@ -18,6 +18,14 @@
         align-items: center;
         width: 100%;
         max-width: 1280px;
+        .logo {
+
+            img {
+
+                width: 150px;
+                margin: 0.5rem;
+            }
+        }
     }
 }
 
@@ -191,13 +199,13 @@
                 font-size: 2rem;
             }
 
-            .logo {
+            // .logo {
 
-                img {
+            //     img {
 
-                    width: 60px;
-                }
-            }
+            //         width: 60px;
+            //     }
+            // }
 
             .menu {
 
@@ -239,13 +247,13 @@
 
         }
 
-        .logo {
+        // .logo {
 
-            img {
+        //     img {
 
-                width: 80px;
-            }
-        }
+        //         width: 80px;
+        //     }
+        // }
     }
 
 }
