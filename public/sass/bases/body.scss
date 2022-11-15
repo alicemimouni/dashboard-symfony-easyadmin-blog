@@ -65,10 +65,13 @@ body {
     h2,
     h3 {
 
-        color: $color-primary;
+        color: $color-secondary;
         font-family: $font-titles;
     }
 
+    .articles h1.title-cards, h1.home, h1.title-cards, .content-article h1 {
+        margin-top: 230px;
+    }
 
     .introduction {
 

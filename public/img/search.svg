@@ -1,5 +1,5 @@
-<svg width="44" height="43" viewBox="0 0 44 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="22" cy="21.5" rx="22" ry="21.5" fill="#555C8B"/>
-<circle cx="19.5" cy="17.5" r="7" stroke="white"/>
-<line x1="25.4069" y1="24.7094" x2="30.4069" y2="31.7094" stroke="white"/>
+<svg width="55" height="55" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="27.5" cy="27.5" r="27.5" fill="#EC1CA7"/>
+<circle cx="25" cy="22.7907" r="9" stroke="white" stroke-width="2"/>
+<line y1="-1" x2="10.9191" y2="-1" transform="matrix(0.641717 0.766941 -0.752807 0.658242 30.8715 32.2663)" stroke="white" stroke-width="2"/>
 </svg>

@@ -24,9 +24,9 @@ window.onscroll = function() {
     menu.style.display = "none";
     burger.classList.remove("open");
 
-    if (searchForm) {
-      searchForm.style.display = "none";
-    }
+    // if (searchForm) {
+    //   searchForm.style.display = "none";
+    // }
     if (newsletterValidator) {
       newsletterValidator.style.display = "none";
     }
@@ -71,8 +71,7 @@ search.addEventListener('click', function() {
   }
  
   // if search form is openned
-  else {
-      
+  else { 
       menu.style.display = "none";
   }
 })

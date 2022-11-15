@@ -81,19 +81,6 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    // PART POPULAR
-    // #############
-     /**
-     * @Route("/popular", name="app_popular", methods={"GET"})
-     * 
-     */
-    public function popularCategories(CategoryRepository $categoryRepository): Response
-    {
-        return $this->render('parts/popular.html.twig', [
-            'categories' => $categoryRepository->findAll()
-        ]);
-    }
-
     // ALL PRODUCTS FOR ONE CATEGORY
     // #########################
     /**
@@ -137,4 +124,5 @@ class DefaultController extends AbstractController
             'articles' => $articleRepository->findAll(),
         ]);  
     }
+    
 }
