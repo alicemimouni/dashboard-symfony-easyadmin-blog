@@ -88,10 +88,10 @@ class ArticleRepository extends ServiceEntityRepository
             ->orWhere('category.name LIKE :search')
             ->setParameter('search', '%'.$filtres['searchBar'].'%');
         }
-        if(count($filtres['categories']) != 0) {
-            $query->andWhere('category IN (:array)')
-            ->setParameter('array', $filtres['categories']);
-        }
+        // if(count($filtres['categories']) != 0) {
+        //     $query->andWhere('category IN (:array)')
+        //     ->setParameter('array', $filtres['categories']);
+        // }
         return $query->getQuery()->getResult();
     }
 }
