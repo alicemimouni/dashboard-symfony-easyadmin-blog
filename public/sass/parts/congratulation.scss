@@ -1,9 +1,15 @@
 .section-congratulation {
-
+    position: relative;
     .empty {
 
         font-size: 1.2rem;
         text-align: center;
         color: red;
+        position: absolute;
+        top: -90px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

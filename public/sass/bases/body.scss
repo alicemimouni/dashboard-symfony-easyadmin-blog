@@ -31,7 +31,7 @@ body {
     box-sizing: border-box;
     color: black;
     font-family: $font-text;
-
+   
     a {
 
         text-decoration: none;
@@ -47,15 +47,13 @@ body {
     .home,
     .empty {
 
-        margin: 3rem 1rem;
+        margin: 2rem 1rem;
         text-align: left;
         margin-left: 7%;
     }
     
     .title-cards,
     .home {
-        
-        margin-top: 5rem;
         font-size: 1.8rem;
         text-transform: uppercase;
         margin-bottom: 1rem;
@@ -70,7 +68,7 @@ body {
     }
 
     .articles h1.title-cards, h1.home, h1.title-cards, .content-article h1 {
-        margin-top: 230px;
+        margin-top: 220px;
     }
 
     .introduction {
