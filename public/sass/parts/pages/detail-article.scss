@@ -16,6 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 1rem;
     
             a {
     
@@ -29,11 +30,14 @@
                 text-decoration: underline;
             }
         }
+        .image-section {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
 
         .introduction,
         .text-content,
-        .video,
-        .image-section {
+        .video {
             margin: 3rem 0;
         }
 
