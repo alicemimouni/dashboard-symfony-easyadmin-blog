@@ -41,35 +41,44 @@
         {# all sections #}
         {% for section in article.sections %}
 
-        <h2> {{ section.name }} </h2>
-        <p class="text-content"> {{ section.textContent }} </p>
+            <h2> {{ section.name }} </h2>
+            <p class="text-content"> {{ section.textContent }} </p>
 
-        {# if there is parts in section #}
-        {% if section.parts %}
-        {% for part in section.parts %}
-        <div class="part-section">
-            <h3> {{ part.name }} </h3>
-            <p> {{ part.content }} </p>
-        </div>
-        {% endfor %}
-        {% endif %}
+            {# if there is parts in section #}
+            {% if section.parts %}
+            {% for part in section.parts %}
+            <div class="part-section">
+                <h3> {{ part.name }} </h3>
+                <p> {{ part.content }} </p>
+            </div>
+            {% endfor %}
+            {% endif %}
 
-        {% if section.images %}
-        {% for image in section.images %}
-        <img src="{{ asset('../../img/'~ image.url) }}" class="image-section" alt="" width="300px">
+            {# if there is image in section #}
+            {% if section.images %}
+            {% for image in section.images %}
+            <img src="{{ asset('../../img/'~ image.url) }}" class="image-section" alt="" width="300px">
+            {% endfor %}
+            {%  endif %}
+
+            {# if there is video in section #}
+            {% if section.videos %}
+            {% for video in section.videos %}
+            <div class="video">
+                <video loop muted poster=" {{ asset('img/'~ video.poster ) }} " width="90%">
+                    <source src=" {{ asset('videos/'~ video.url) }} " type="video/mp4">
+                </video>
+                <span class="play"><img src=" {{ asset('img/play-video.svg') }} " alt="Lecture"></span>
+            </div>
+            {% endfor %}
+            {% endif %}
+
         {% endfor %}
-        {%  endif %}
-        {% if section.videos %}
-        {% for video in section.videos %}
-        <div class="video">
-            <video loop muted poster=" {{ asset('img/'~ video.poster ) }} " width="90%">
-                <source src=" {{ asset('videos/'~ video.url) }} " type="video/mp4">
-            </video>
-            <span class="play"><img src=" {{ asset('img/play-video.svg') }} " alt="Lecture"></span>
-        </div>
-        {% endfor %}
+
+        {# show conclusion if it exists #}
+        {% if article.conclusion %}
+        <p class="introduction"> {{ article.conclusion }} </p>
         {% endif %}
-        {% endfor %}
         {# if there is link in article #}
         {% if article.links %}
         {% for link in article.links %}
