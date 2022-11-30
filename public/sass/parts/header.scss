@@ -57,7 +57,7 @@
         p {
             display: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1rem;
             margin: 1.2rem 0;
             font-family: $font-logo;
             font-weight: 600;
@@ -127,7 +127,6 @@
                     top: 0;
                 }
             }
-
         }
 
         // ul
@@ -173,21 +172,11 @@
 
 }
 
-@media screen and (min-width: 440px) {
-    .header {
-        .bloc {
-            p {
-                display: flex;
-            }
-        }
-    }
-}
-
 @media screen and (min-width: 500px) {
     .header {
         .bloc {
             p {
-                font-size: 2rem;
+                display: flex;
             }
             .menu {
                 top: 74.4px;
@@ -205,7 +194,7 @@
     .header {
         .bloc {
             p {
-                font-size: 3rem;
+                font-size: 2rem;
             }
             .menu {
                 top: 92.4px;
