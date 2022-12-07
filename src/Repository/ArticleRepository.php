@@ -94,4 +94,9 @@ class ArticleRepository extends ServiceEntityRepository
         // }
         return $query->getQuery()->getResult();
     }
+
+    public function findAll()
+    {
+        return $this->findBy(array(), array('date' => 'DESC'));
+    }
 }

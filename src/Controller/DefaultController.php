@@ -12,6 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+
 
 
 
@@ -37,7 +39,7 @@ class DefaultController extends AbstractController
 
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
-            'articles' => $articleRepository->findAll(),
+            'articles' => $articleRepository->findAll()
         ]);
 
     }
@@ -81,7 +83,7 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    // ALL PRODUCTS FOR ONE CATEGORY
+    // ALL ARTICLES FOR ONE CATEGORY
     // #########################
     /**
      * @Route("/categorie/{slug}", name="articles_for_one_category", methods={"GET"})

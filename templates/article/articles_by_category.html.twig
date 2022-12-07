@@ -10,6 +10,7 @@
     content="Blog d'astuces pour le web, web design, site internet, référencement, découvrez les articles de la categorie {{ category.name }}." />
 <link rel="canonical" href="http://127.0.0.1:8000/{{ category.slug }}" />
 <meta property="og:title" content="{{ category.name }} | Bforweb - Le Blog">
+<meta property="og:image" content="{{ asset('img/'~ category.image.url) }}">
 <meta property="og:url" content="http://127.0.0.1:8000/{{ category.slug }}">
 <meta property="og:description"
     content="Blog d'astuces et tutos pour le web, web design, site internet, référencement, découvrez les articles {{ category.name }}.">
