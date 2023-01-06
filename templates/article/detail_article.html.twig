@@ -6,14 +6,14 @@
 <meta name="Language" CONTENT="fr" />
 <title>{{ article.title }} | Bforweb - Le Blog</title>
 <meta name="description"
-    content="Blog d'astuces pour le web, web design, site internet, référencement, lire l'article {{ article.title }}." />
-<link rel="canonical" href="http://127.0.0.1:8000/{{ article.slug }}" />
+    content="Blog d'astuces pour le web, web design, développement web, référencement, lire l'article {{ article.title }}." />
+<link rel="canonical" href="http://127.0.0.1:8000/post/{{ article.slug }}" />
 <meta property="og:title" content="{{ article.title }} | Bforweb - Le Blog">
 <meta property="og:image" content="{{ asset('img/' ~ article.image.url) }}">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://127.0.0.1:8000/{{ article.slug }}">
+<meta property="og:url" content="http://127.0.0.1:8000/post/{{ article.slug }}">
 <meta property="og:description"
-    content="Blog d'astuces et tutos pour le web, web design, site internet, référencement, lire l'article {{ article.title }}.">
+    content="Blog d'astuces et tutos pour le web, web design, développement web, référencement, lire l'article {{ article.title }}.">
 {% endblock %}
 {% endblock head %}
 

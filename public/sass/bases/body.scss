@@ -71,6 +71,15 @@ body {
         margin-top: 220px;
     }
 
+    // sections
+    section.articles {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
     .introduction {
 
         font-weight: 600;
