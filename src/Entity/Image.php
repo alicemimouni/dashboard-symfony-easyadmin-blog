@@ -44,6 +44,16 @@ class Image
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url_avif;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url_webp;
+
     public function __construct()
     {
         $this->sections = new ArrayCollection();
@@ -154,6 +164,30 @@ class Image
         }
 
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getUrl_avif(): ?string
+    {
+        return $this->url_avif;
+    }
+
+    public function setUrl_avif(?string $url_avif): self
+    {
+        $this->url_avif = $url_avif;
+
+        return $this;
+    }
+
+    public function getUrl_webp(): ?string
+    {
+        return $this->url_webp;
+    }
+
+    public function setUrl_webp(?string $url_webp): self
+    {
+        $this->url_webp = $url_webp;
 
         return $this;
     }

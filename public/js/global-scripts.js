@@ -12,7 +12,13 @@ let newsletterValidator = document.querySelector('.section-congratulation');
 let titleOne = document.querySelector('h1');
 let titleTwo = document.querySelectorAll('h2');
 let titleThree = document.querySelectorAll('h3');
-
+// detail article div
+let detailArticle = document.querySelector('body div.detail-article');
+// image thimbnail in detail article
+let imageArticle = document.querySelector('div.detail-article .content-article img.image-article');
+// all images in section all articles
+let imagesCard = document.querySelectorAll('section.articles .cards-container .card picture');
+let cards = document.querySelectorAll('section.articles .cards-container .card');
 // change navbar on scroll
 // #######################
 window.onscroll = function() {
@@ -82,20 +88,34 @@ document.querySelectorAll('h2, h3, h1, p').forEach(element => {
 
   if(element.innerHTML.includes('?')) {
     
-    console.log(element.innerHTML);
+    // console.log(element.innerHTML);
     element.innerHTML = element.innerHTML.replace('?', '&nbsp?');  
   }
 
   if(element.innerHTML.includes('!')) {
     
-    console.log(element.innerHTML);
+    // console.log(element.innerHTML);
     element.innerHTML = element.innerHTML.replace('!', '&nbsp!');   
   }
 
   if(element.innerHTML.includes(':')) {
     
-    console.log(element.innerHTML);
+    // console.log(element.innerHTML);
     element.innerHTML = element.innerHTML.replace(':', '&nbsp:'); 
   }
 });
 
+
+// IN PAGE DETAIL ARTICLE REMOVE ARTICLE IN SECTION ALL ARTICLES WHEN IT IS THE SAME
+function removeArticle() {
+
+  if(detailArticle) {
+    imagesCard.forEach(picture => {
+        if(picture.getElementsByTagName("img")[0].src == imageArticle.src) {
+          picture.getElementsByTagName("img")[0].parentNode.parentNode.style.display = "none";
+        }
+    });
+  }
+}
+
+removeArticle();
