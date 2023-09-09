@@ -57,7 +57,7 @@ class Image
     public function __construct()
     {
         $this->sections = new ArrayCollection();
-        $this->articles = new ArrayCollection();
+        $this->articles = new ArrayCollection(); 
     }
 
     public function getId(): ?int

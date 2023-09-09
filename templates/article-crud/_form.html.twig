@@ -1,4 +1,17 @@
 {{ form_start(form) }}
+{{ form_row(form.title) }}
+{{ form_row(form.date) }}
+{{ form_row(form.categories) }}
+{{ form_row(form.image) }}
+
+{% if article.image.url %}
+<div class="container mt-3 mb-3">
+    <img src="{{ asset('img/'~article.image.url) }}" width="100px">
+</div>
+{% endif %}
+
+{{ form_row(form.introduction) }}
+{{ form_row(form.conclusion) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

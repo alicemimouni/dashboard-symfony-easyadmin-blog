@@ -3,21 +3,94 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use App\Entity\Category;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class ArticleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
-            ->add('date')
-            ->add('introduction')
-            ->add('featuredImage')
-            ->add('conclusion')
-            ->add('categories')
+            ->add('title', TextType::class, [
+                'label' => 'Titre',
+                'label_attr' => [
+                    'class' => 'form-label m-3'
+                ],
+                'attr' => [
+                    'class' => 'form-control m-3 w-100'
+                ]
+            ])
+            ->add('date', DateType::class, [
+                'label' => 'Date de publication',
+                'label_attr' => [
+                    'class' => 'form-label m-3'
+                ],
+                'format' => 'dd MM yyyy',
+                'attr' => [
+                    'class' => 'form-control m-3 w-100'
+                ]
+            ])
+            ->add('categories', EntityType::class, [
+                'class'=> Category::class,
+                'multiple'=> true,
+                'expanded'=> true,
+                'label' => 'Catégories',
+                'label_attr' => [
+                    'class' => 'form-label m-3'
+                ],
+                'attr' => [
+                    'class'=> 'form-control m-3',
+                ] 
+            ])
+            ->add('introduction', TextareaType::class, [
+                'label' => 'Introduction',
+                'label_attr' => [
+                    'class' => 'form-label m-3'
+                ],
+                'attr' => [
+                    'class' => 'form-control m-3 w-100',
+                    'style' => 'height:300px'
+                ]
+            ])
+            ->add('image', FileType::class, [
+                'label' => 'Image de l\'article',
+                'label_attr' => [
+                    'class' => 'form-label m-3'
+                ],
+                'mapped' => false,
+                'attr' => [
+                    'class' => 'm-3 form-control'
+                ],
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1g',
+                        'mimeTypes' => [
+                            'image/*'
+                        ],
+                        'mimeTypesMessage' => 'Image invalide',
+                        'maxSizeMessage' => 'Le fichier est trop lourd'
+                    ])
+                ],
+            ])
+            ->add('conclusion', TextareaType::class, [
+                'label' => 'Conclusion',
+                'label_attr' => [
+                    'class' => 'form-label m-3'
+                ],
+                'attr' => [
+                    'class' => 'form-control m-3 w-100',
+                    'style' => 'height:300px'
+                ]
+            ])
+            
         ;
     }
 

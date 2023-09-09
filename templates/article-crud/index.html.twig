@@ -1,20 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-admin.html.twig' %}
 
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
+<div  class="d-flex align-items-center justify-content-center">
+<div class="container m-3">
+    <h1 class="m-5 text-center">TOUS LES ARTICLES</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Date</th>
-                <th>Introduction</th>
-                <th>FeaturedImage</th>
-                <th>Conclusion</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,13 +21,10 @@
             <tr>
                 <td>{{ article.id }}</td>
                 <td>{{ article.title }}</td>
-                <td>{{ article.date ? article.date|date('Y-m-d') : '' }}</td>
-                <td>{{ article.introduction }}</td>
-                <td>{{ article.featuredImage }}</td>
-                <td>{{ article.conclusion }}</td>
+                <td>{{ article.date ? article.date|date('d-m-Y') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
+                    <a href="{{ path('app_article_show', {'id': article.id}) }}" class="">Voir</a>
+                    <a href="{{ path('app_article_edit', {'id': article.id}) }}">Éditer</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +35,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_article_new') }}">Create new</a>
+    <a href="{{ path('app_article_new') }}" class="btn btn-dark">Créer un article</a>
+</div>
+</div>
 {% endblock %}

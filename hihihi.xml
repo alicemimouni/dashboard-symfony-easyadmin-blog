@@ -20,4 +20,8 @@
   <loc>https://blog.bforweb.fr/categorie/developpement-web</loc>
   <priority>0.80</priority>
 </url>
+<url>
+  <loc>https://blog.bforweb.fr/categorie/astuces-web</loc>
+  <priority>0.80</priority>
+</url>
 </urlset>
