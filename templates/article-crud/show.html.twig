@@ -18,6 +18,15 @@
                     <td>{{ article.title }}</td>
                 </tr>
                 <tr>
+                    <th>Categories</th>
+                    <td>
+                    <ul class="list-group">{% for categorie in article.categories %}
+                           <li class="list-group-item list-group-item-primary">{{ categorie.name }} </li>
+                        {% endfor %}
+                    </ul>
+                    </td>
+                </tr>
+                <tr>
                     <th>Date</th>
                     <td>{{ article.date ? article.date|date('Y-m-d') : '' }}</td>
                 </tr>
@@ -29,6 +38,23 @@
                     <th>Introduction</th>
                     <td>{{ article.introduction }}</td>
                 </tr>
+                 {% if article.sections %}
+                 <tr>
+                    <th>Sections</th>
+                     <td>
+                        <ul class="list-group">{% for section in article.sections %}
+                           <li class="list-group-item list-group-item-primary"><a href="{{ path('app_detail_section', {'id': article.id,'id_section': section.id}) }}">
+                           {% if section.name %}
+                           {{ section.name }}
+                           {% else %}
+                           section sans titre
+                           {% endif %}
+                           </a></li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                {% endif %}
                 <tr>
                     <th>Conclusion</th>
                     <td>{{ article.conclusion }}</td>

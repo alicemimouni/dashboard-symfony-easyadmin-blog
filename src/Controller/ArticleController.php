@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Section;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
+use App\Repository\SectionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,6 +26,19 @@ class ArticleController extends AbstractController
             'articles' => $articleRepository->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/{id}/section/{id_section}", name="app_detail_section", methods={"GET"})
+     */
+    public function showSection(Article $article, Section $section): Response
+    {
+        return $this->render('article-crud/detail-section.html.twig', [
+            'section' => $section,
+            'article' => $article
+
+        ]);
+    }
+
 
     /**
      * @Route("/new", name="app_article_new", methods={"GET", "POST"})
