@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * @Route("/article")
@@ -27,8 +28,9 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    /**
+     /**
      * @Route("/{id}/section/{id_section}", name="app_detail_section", methods={"GET"})
+     * @ParamConverter("section", options={"id" = "id_section"})
      */
     public function showSection(Article $article, Section $section): Response
     {
@@ -38,7 +40,6 @@ class ArticleController extends AbstractController
 
         ]);
     }
-
 
     /**
      * @Route("/new", name="app_article_new", methods={"GET", "POST"})
@@ -100,4 +101,5 @@ class ArticleController extends AbstractController
 
         return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }

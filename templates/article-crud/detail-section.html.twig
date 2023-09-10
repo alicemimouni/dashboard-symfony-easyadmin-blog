@@ -17,6 +17,20 @@
                     <th>Contenu</th>
                     <td>{{ section.textContent }}</td>
                 </tr>
+                {% if section.images %}
+                <tr>
+                    <th>Images</th>
+                    <td>
+                    <ul class="list-group-flush">
+                    {% for image in section.images %}
+                        <li class="list-group-item">
+                        <img src="{{ asset('img/'~image.url) }}" width="100px">
+                        </li>
+                    {% endfor %}
+                    </ul>
+                    </td>
+                </tr>
+                {% endif %}
             </tbody>
         </table>
         <div class="text-center">
