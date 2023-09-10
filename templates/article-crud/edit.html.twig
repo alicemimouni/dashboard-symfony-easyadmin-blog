@@ -7,11 +7,11 @@
 <div class="container m-3">
     <h1 class="m-5 text-center">Édition article : {{ article.title }} </h1>
 
-    {{ include('article-crud/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a class="m-3" href="{{ path('app_article_index') }}">Retour</a>
+    {{ include('article-crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
     {{ include('article-crud/_delete_form.html.twig') }}
+
+    <a class="m-3" href="{{ path('app_article_index') }}">Retour</a>
     
 </div>
 </div>

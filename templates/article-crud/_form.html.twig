@@ -6,12 +6,14 @@
 
 {% if article.image.url %}
 <div class="container mt-3 mb-3">
-    <img src="{{ asset('img/'~article.image.url) }}" width="100px">
+    <p>Image actuelle</p>
+    <img src="{{ asset('img/'~article.image.url) }}" width="250px">
+    <small class="m-2 text-primary"> {{ article.image.url }} </small>
 </div>
 {% endif %}
 
 {{ form_row(form.introduction) }}
 {{ form_row(form.conclusion) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+    <button class="btn btn-primary m-3">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

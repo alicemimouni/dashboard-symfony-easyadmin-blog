@@ -23,7 +23,7 @@
                 <td>{{ article.title }}</td>
                 <td>{{ article.date ? article.date|date('d-m-Y') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}" class="">Voir</a>
+                    <a href="{{ path('detail_article', {'slug': article.slug}) }}" class="">Voir</a>
                     <a href="{{ path('app_article_edit', {'id': article.id}) }}">Éditer</a>
                 </td>
             </tr>

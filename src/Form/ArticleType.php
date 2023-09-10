@@ -22,7 +22,7 @@ class ArticleType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre',
                 'label_attr' => [
-                    'class' => 'form-label m-3'
+                    'class' => 'form-label m-3 text-uppercase'
                 ],
                 'attr' => [
                     'class' => 'form-control m-3 w-100'
@@ -31,7 +31,7 @@ class ArticleType extends AbstractType
             ->add('date', DateType::class, [
                 'label' => 'Date de publication',
                 'label_attr' => [
-                    'class' => 'form-label m-3'
+                    'class' => 'form-label m-3 text-uppercase'
                 ],
                 'format' => 'dd MM yyyy',
                 'attr' => [
@@ -44,7 +44,7 @@ class ArticleType extends AbstractType
                 'expanded'=> true,
                 'label' => 'Catégories',
                 'label_attr' => [
-                    'class' => 'form-label m-3'
+                    'class' => 'form-label m-3 text-uppercase'
                 ],
                 'attr' => [
                     'class'=> 'form-control m-3',
@@ -53,7 +53,7 @@ class ArticleType extends AbstractType
             ->add('introduction', TextareaType::class, [
                 'label' => 'Introduction',
                 'label_attr' => [
-                    'class' => 'form-label m-3'
+                    'class' => 'form-label m-3 text-uppercase'
                 ],
                 'attr' => [
                     'class' => 'form-control m-3 w-100',
@@ -63,9 +63,10 @@ class ArticleType extends AbstractType
             ->add('image', FileType::class, [
                 'label' => 'Image de l\'article',
                 'label_attr' => [
-                    'class' => 'form-label m-3'
+                    'class' => 'form-label m-3 text-uppercase'
                 ],
                 'mapped' => false,
+                'required' => false,
                 'attr' => [
                     'class' => 'm-3 form-control'
                 ],
@@ -83,7 +84,7 @@ class ArticleType extends AbstractType
             ->add('conclusion', TextareaType::class, [
                 'label' => 'Conclusion',
                 'label_attr' => [
-                    'class' => 'form-label m-3'
+                    'class' => 'form-label m-3 text-uppercase'
                 ],
                 'attr' => [
                     'class' => 'form-control m-3 w-100',
