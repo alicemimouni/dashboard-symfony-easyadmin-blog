@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Section;
 use Symfony\Component\Form\AbstractType;
 use App\Form\ImageType;
+use App\Form\VideoType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -47,7 +48,16 @@ class SectionType extends AbstractType
                     'class' => 'form-label m-3'
                 ] 
             ])
-            ->add('videos')
+            ->add('videos', CollectionType::class, [
+                'entry_type' => VideoType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'label' => 'Vidéo de la section',
+                'label_attr' => [
+                    'class' => 'form-label m-3'
+                ] 
+            ])
         ;
     }
 
