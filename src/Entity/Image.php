@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ImageRepository::class)
+ * 
  */
 class Image
 {
@@ -190,5 +191,10 @@ class Image
         $this->url_webp = $url_webp;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getUrl();
     }
 }

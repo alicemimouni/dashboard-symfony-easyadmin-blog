@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use App\Form\SectionType;
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -13,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class ArticleType extends AbstractType
 {
@@ -50,16 +52,6 @@ class ArticleType extends AbstractType
                     'class'=> 'form-control m-3',
                 ] 
             ])
-            ->add('introduction', TextareaType::class, [
-                'label' => 'Introduction',
-                'label_attr' => [
-                    'class' => 'form-label m-3 text-uppercase'
-                ],
-                'attr' => [
-                    'class' => 'form-control m-3 w-100',
-                    'style' => 'height:300px'
-                ]
-            ])
             ->add('image', FileType::class, [
                 'label' => 'Image de l\'article',
                 'label_attr' => [
@@ -81,6 +73,27 @@ class ArticleType extends AbstractType
                     ])
                 ],
             ])
+            ->add('introduction', TextareaType::class, [
+                'label' => 'Introduction',
+                'label_attr' => [
+                    'class' => 'form-label m-3 text-uppercase'
+                ],
+                'attr' => [
+                    'class' => 'form-control m-3 w-100',
+                    'style' => 'height:300px'
+                ]
+            ])
+            ->add('sections', CollectionType::class, [
+                'entry_type' => SectionType::class,
+                'label' => 'Sections',
+                'label_attr' => [
+                    'class' => 'form-label m-3 text-uppercase'
+                ],
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false, // Important pour gérer les modifications
+            ])
+
             ->add('conclusion', TextareaType::class, [
                 'label' => 'Conclusion',
                 'label_attr' => [
