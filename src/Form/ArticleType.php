@@ -63,7 +63,7 @@ class ArticleType extends AbstractType
             ->add('image', FileType::class, [
                 'label' => 'Image de l\'article',
                 'label_attr' => [
-                    'class' => 'form-label m-3 text-uppercase'
+                    'class' => 'form-label m-3 text-uppercase',
                 ],
                 'mapped' => false,
                 'required' => false,

@@ -7,8 +7,8 @@
 {% if article.image.url %}
 <div class="container mt-3 mb-3">
     <p>Image actuelle</p>
-    <img src="{{ asset('img/'~article.image.url) }}" width="250px">
-    <small class="m-2 text-primary"> {{ article.image.url }} </small>
+    <img src="{{ asset('img/'~article.image.url) }}" width="250px"><br>
+    <small class="text-primary"> {{ article.image.url }} </small><br>
 </div>
 {% endif %}
 
