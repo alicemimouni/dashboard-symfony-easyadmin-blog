@@ -12,7 +12,6 @@ class ImageCrudController extends AbstractCrudController
         return Image::class;
     }
 
-    /*
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -21,5 +20,5 @@ class ImageCrudController extends AbstractCrudController
             TextEditorField::new('description'),
         ];
     }
-    */
+    
 }
