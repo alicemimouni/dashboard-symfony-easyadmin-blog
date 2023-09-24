@@ -50,7 +50,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         $user = $token->getUser();
-        if(in_array("ROLE_ADMIN", $user->getRoles())) {
+        if(in_array("ROLE_AUTHOR", $user->getRoles())) {
             return new RedirectResponse($this->urlGenerator->generate('admin'));
         }
         else {
