@@ -18,6 +18,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use Symfony\Component\HttpFoundation\Response;
+use App\Form\SectionType;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -59,8 +60,8 @@ class ArticleCrudController extends AbstractCrudController
 
        yield TextareaField::new('introduction')->onlyOnForms();
     
-       yield CollectionField::new('sections')->onlyOnForms();
-
+       yield CollectionField::new('sections')->setEntryType(SectionType::class)->onlyOnForms();
+    
        yield TextareaField::new('conclusion')->onlyOnForms();
 
     }

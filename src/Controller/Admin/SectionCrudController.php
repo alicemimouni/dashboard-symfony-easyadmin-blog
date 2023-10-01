@@ -18,8 +18,9 @@ class SectionCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            TextareaField::new('description'),
+            TextField::new('name'),
+            TextareaField::new('textContent'),
+
         ];
     }
     
