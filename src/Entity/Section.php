@@ -20,7 +20,7 @@ class Section
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $name;
 
@@ -46,7 +46,7 @@ class Section
     private $videos;
 
     /**
-     * @ORM\OneToMany(targetEntity=Part::class, mappedBy="section")
+     * @ORM\OneToMany(targetEntity=Part::class, mappedBy="section", cascade={"persist"})
      */
     private $parts;
 

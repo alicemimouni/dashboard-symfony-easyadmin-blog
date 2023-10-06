@@ -52,7 +52,7 @@ class Article implements TimestampedInterface
     private $categories;
 
     /**
-     * @ORM\OneToMany(targetEntity=Section::class, mappedBy="article", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Section::class, mappedBy="article", orphanRemoval=true, cascade={"persist"})
      */
     private $sections;
 

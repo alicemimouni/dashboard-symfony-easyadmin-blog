@@ -6,15 +6,20 @@ use App\Entity\Part;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class PartType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('content')
-            ->add('section')
+            ->add('name', TextType::class, [
+                'label' => 'Titre'
+            ])
+            ->add('content', TextareaType::class, [
+                'label' => 'Contenu'
+            ])
         ;
     }
 

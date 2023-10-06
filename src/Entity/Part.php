@@ -37,6 +37,9 @@ class Part
         return $this->id;
     }
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
     public function getName(): ?string
     {
         return $this->name;
@@ -72,4 +75,9 @@ class Part
 
         return $this;
     }
+
+    // public function __toString()
+    // {
+    //     return $this->name;
+    // }
 }
