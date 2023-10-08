@@ -46,7 +46,7 @@ class Section
     private $videos;
 
     /**
-     * @ORM\OneToMany(targetEntity=Part::class, mappedBy="section", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=Part::class, mappedBy="section", cascade={"persist", "remove"})
      */
     private $parts;
 

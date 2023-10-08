@@ -68,22 +68,46 @@ class ArticleCrudController extends AbstractCrudController
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
+       /** @var Article $article */
+       $article = $entityInstance;
+
+       foreach ($article->getSections() as $section) {
+           $section->setArticle($article);
+
+           foreach ($section->getParts() as $part) {
+            $part->setSection($section);
+        }
+       }
+
+       parent::persistEntity($entityManager, $article);
+    }
+
+    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
         /** @var Article $article */
         $article = $entityInstance;
 
-        $article->setAuthor($this->getUser());
+        foreach ($article->getSections() as $section) {
+            $section->setArticle($article);
 
-        parent::persistEntity($entityManager, $article);
+            foreach ($section->getParts() as $part) {
+                $part->setSection($section);
+            }
+        }
+
+        parent::updateEntity($entityManager, $article);
     }
 
-    public function viewArticle(AdminContext $context): Response
+    public function removeEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
-        /** @var Article $article */
-        $article = $context->getEntity()->getInstance();
+        $part = $entityManager->getRepository(Part::class)->find($id);
 
-        return $this->redirectToRoute('detail_article', [
-            'slug' => $article->getSlug()
-        ]);
-    }
+        if (!$part) {
+            throw $this->createNotFoundException('Partie introuvable');
+        }
     
+        $entityManager->remove($part);
+        $entityManager->flush();
+    }
+
 }

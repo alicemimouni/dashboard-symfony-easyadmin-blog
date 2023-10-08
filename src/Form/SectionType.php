@@ -27,7 +27,8 @@ class SectionType extends AbstractType
             ->add('parts', CollectionType::class, [
                 'label' => 'Parties',
                 'entry_type' => PartType::class,
-                'allow_add' => 'true'
+                'allow_add' => true,
+                'allow_delete' => true
             // 'entry_options' => ['label' => false],
             ])
         ;
