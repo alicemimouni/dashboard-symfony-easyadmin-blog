@@ -15,7 +15,9 @@ class PartType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Titre'
+                'label' => 'Titre',
+                'required' => false,
+                'empty_data' => ''
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'Contenu'

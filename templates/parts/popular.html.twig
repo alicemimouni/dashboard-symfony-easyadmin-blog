@@ -4,7 +4,7 @@
     {% for category in categories %}
     <a href="{{ path('articles_for_one_category', {'slug': category.slug }) }}"><div class="transform-scale">
         <p>{{ category.name }}</p>
-        <img src="{{ asset('uploads/'~ category.image.url) }}" alt="{{ category.image.alt }}." width="80%">
+        <img src="{{ asset('uploads/images/'~ category.image.url) }}" alt="{{ category.image.alt }}." width="80%">
     </div></a>
     {% endfor %}
 </section>

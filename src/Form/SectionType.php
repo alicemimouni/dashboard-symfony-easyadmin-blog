@@ -17,7 +17,9 @@ class SectionType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Titre de la section'
+                'label' => 'Titre de la section',
+                'required' => false,
+                'empty_data' => ''
             ])
             ->add('textContent', TextareaType::class, [
                 'label' => 'Contenu'
@@ -28,7 +30,8 @@ class SectionType extends AbstractType
                 'label' => 'Parties',
                 'entry_type' => PartType::class,
                 'allow_add' => true,
-                'allow_delete' => true
+                'allow_delete' => true,
+                'by_reference' => false //Ensures that part modifications are tracked
             // 'entry_options' => ['label' => false],
             ])
         ;

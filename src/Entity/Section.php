@@ -178,6 +178,6 @@ class Section
 
     public function __toString()
     {
-        return $this->getName();
+        return $this->name ?? ''; // if name is not null
     }
 }

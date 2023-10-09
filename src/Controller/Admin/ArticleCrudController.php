@@ -82,6 +82,7 @@ class ArticleCrudController extends AbstractCrudController
        parent::persistEntity($entityManager, $article);
     }
 
+    // update section and part
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
         /** @var Article $article */
@@ -98,16 +99,30 @@ class ArticleCrudController extends AbstractCrudController
         parent::updateEntity($entityManager, $article);
     }
 
-    public function removeEntity(EntityManagerInterface $entityManager, $entityInstance): void
-    {
-        $part = $entityManager->getRepository(Part::class)->find($id);
+    // remove part
+    public function removePart(EntityManagerInterface $entityManager, $id): Response
+{
+    $part = $entityManager->getRepository(Part::class)->find($id);
 
-        if (!$part) {
-            throw $this->createNotFoundException('Partie introuvable');
-        }
-    
-        $entityManager->remove($part);
-        $entityManager->flush();
+    if (!$part) {
+        throw $this->createNotFoundException('Partie introuvable');
+    }
+
+    $entityManager->remove($part);
+    $entityManager->flush();
+
+    // return $this->redirectToRoute('easyadmin'); 
+}
+
+    // view article
+    public function viewArticle(AdminContext $context): Response
+    {
+        /** @var Article $article */
+        $article = $context->getEntity()->getInstance();
+
+        return $this->redirectToRoute('detail_article', [
+            'slug' => $article->getSlug()
+        ]);
     }
 
 }

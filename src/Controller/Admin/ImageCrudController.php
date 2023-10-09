@@ -17,7 +17,7 @@ class ImageCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        $mediasDir = $this->getParameter('medias_directory');
+        $imagesDir = $this->getParameter('images_directory');
         $uploadsDir = $this->getParameter('uploads_directory');
 
         yield TextField::new('url');
@@ -26,7 +26,7 @@ class ImageCrudController extends AbstractCrudController
 
         $imageField = ImageField::new('url', 'Média')
             ->setBasePath($uploadsDir)
-            ->setUploadDir($mediasDir)
+            ->setUploadDir($imagesDir)
             ->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
 
         if (Crud::PAGE_EDIT == $pageName) {

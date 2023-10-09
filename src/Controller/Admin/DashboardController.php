@@ -13,6 +13,7 @@ use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\User;
 use App\Entity\Image;
+use App\Entity\Video;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
@@ -70,9 +71,10 @@ class DashboardController extends AbstractDashboardController
 
             // images
             yield MenuItem::subMenu('Médias', 'fas fa-photo-video')->setSubItems([
-                MenuItem::linkToCrud('Médiathèque', 'fas fa-photo-video', Image::class),
-                MenuItem::linkToCrud('Ajouter', 'fas fa-plus', Image::class)->setAction(Crud::PAGE_NEW),
+                MenuItem::linkToCrud('Images', 'fas fa-photo-video', Image::class),
+                MenuItem::linkToCrud('Vidéos', 'fas fa-photo-video', Video::class),
             ]);
+
         }
     
         if ($this->isGranted('ROLE_ADMIN')) {
