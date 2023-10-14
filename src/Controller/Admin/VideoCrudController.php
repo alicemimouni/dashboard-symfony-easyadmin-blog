@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class VideoCrudController extends AbstractCrudController
 {
@@ -18,22 +19,27 @@ class VideoCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
        
-        $videosDir = $this->getParameter('videos_directory');
         $uploadsDir = $this->getParameter('uploads_directory');
+        $imagesDir = $this->getParameter('images_directory');
 
-        yield TextField::new('url');
-        yield TextField::new('poster');
+        yield TextField::new('url') 
+        ->hideOnForm();
+        // yield TextField::new('poster');
 
-        $videoField = ImageField::new('url', 'Média')
+        yield TextField::new('videoFile', 'Vidéo')
+        ->setFormType(VichFileType::class)->onlyOnForms();
+
+        // poster
+        $imageField = ImageField::new('poster')
             ->setBasePath($uploadsDir)
-            ->setUploadDir($videosDir)
+            ->setUploadDir($imagesDir)
             ->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
 
         if (Crud::PAGE_EDIT == $pageName) {
-            $videoField->setRequired(false);
+            $imageField->setRequired(false);
         }
 
-        yield $videoField;
+        yield $imageField;
         
     }
 
