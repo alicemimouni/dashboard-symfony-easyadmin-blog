@@ -164,7 +164,7 @@ class Video
 
     public function __toString()
     {
-        return $this->getUrl();
+        return $this->getUrl() ?? '';
     }
 
 }

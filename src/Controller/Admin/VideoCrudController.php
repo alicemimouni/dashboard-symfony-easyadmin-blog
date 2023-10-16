@@ -16,6 +16,13 @@ class VideoCrudController extends AbstractCrudController
         return Video::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInSingular('Vidéo')
+            ->setEntityLabelInPlural('Vidéos'); 
+    }
+
     public function configureFields(string $pageName): iterable
     {
        
@@ -24,7 +31,6 @@ class VideoCrudController extends AbstractCrudController
 
         yield TextField::new('url') 
         ->hideOnForm();
-        // yield TextField::new('poster');
 
         yield TextField::new('videoFile', 'Vidéo')
         ->setFormType(VichFileType::class)->onlyOnForms();
@@ -33,7 +39,7 @@ class VideoCrudController extends AbstractCrudController
         $imageField = ImageField::new('poster')
             ->setBasePath($uploadsDir)
             ->setUploadDir($imagesDir)
-            ->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
+            ->setUploadedFileNamePattern('[slug].[extension]');
 
         if (Crud::PAGE_EDIT == $pageName) {
             $imageField->setRequired(false);

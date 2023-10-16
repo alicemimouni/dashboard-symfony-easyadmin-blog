@@ -69,7 +69,7 @@ class DashboardController extends AbstractDashboardController
                     MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class)
             ]);
 
-            // images
+            // medias
             yield MenuItem::subMenu('Médias', 'fas fa-photo-video')->setSubItems([
                 MenuItem::linkToCrud('Images', 'fas fa-photo-video', Image::class),
                 MenuItem::linkToCrud('Vidéos', 'fas fa-photo-video', Video::class),

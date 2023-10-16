@@ -71,6 +71,7 @@ class Article implements TimestampedInterface
      */
     private $links;
 
+    
     public function __construct()
     {
         $this->categories = new ArrayCollection();

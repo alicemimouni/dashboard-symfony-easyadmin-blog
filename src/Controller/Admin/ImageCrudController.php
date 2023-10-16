@@ -10,9 +10,16 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
 class ImageCrudController extends AbstractCrudController
 {
+
     public static function getEntityFqcn(): string
     {
         return Image::class;
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInPlural('Images'); 
     }
 
     public function configureFields(string $pageName): iterable
@@ -23,11 +30,10 @@ class ImageCrudController extends AbstractCrudController
         yield TextField::new('url');
         yield TextField::new('alt', 'Texte alternatif')->onlyOnForms();
 
-
         $imageField = ImageField::new('url', 'Média')
             ->setBasePath($uploadsDir)
             ->setUploadDir($imagesDir)
-            ->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
+            ->setUploadedFileNamePattern('[slug].[extension]');
 
         if (Crud::PAGE_EDIT == $pageName) {
             $imageField->setRequired(false);
