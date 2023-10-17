@@ -3,27 +3,37 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-<div class="container w-25 mt-5">
-     <h1>Se connecter</h1>
 
-        <form method="post">
-            <div class="mb-3">
-                <label for="username" class="form-label">Nom d'utilisateur</label>
-                <input type="text" class="form-control" id="username" name="username" required="required" value="{{ last_username }}"/>
+<div class="form-container-login w-100 h-100 d-flex align-items-center justify-content-center flex-row mt-5">
+    <div class="form-content p-5">
+        <h1 class="text-dark">Bienvenue !</h1>
+    <p class="mb-4 text-secondary">Connectez-vous pour continuer</p>
+        <form class="" method="post">
+            <div class="mb-3 d-flex flex-row align-items-center">
+                <img class="m-2" src="{{ asset('uploads/images/la-personne.png') }}" width="20px" height="20px"/>
+                <input class="form-control p-2 border-top-0 border-end-0 border-start-0 border-bottom text-secondary w-100" type="text" id="username" name="username" required="required" value="{{ last_username }}" placeholder="Nom d'utilisateur"/>
             </div>
-            <div class="mb-3">
-                <label for="password">Mot de passe</label>
-                <input type="password" class="form-control" id="password" required="required"  name="password"/>
+            <div class="mb-3 d-flex flex-row align-items-center">
+                <img class="m-1" src="{{ asset('uploads/images/cadenas.png') }}" width="30px"/>
+                <input class="p-2 w-100 form-control border-top-0 border-end-0 border-start-0 border-bottom " type="password" id="password" required="required" placeholder="Mot de passe" name="password"/>
             </div>
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-            <button type="submit" class="btn btn-primary">Se connecter</button>
+            <button class="rounded-pill mt-3 btn background-primary text-white" type="submit">Connexion</button>
         </form>
+
+        {# show errors #}
         {% if error %}
-            <div class="alert alert-danger mt-4" role="alert">
-                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            </div>
+        <div class="alert alert-danger mt-4" role="alert">
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        </div>
         {% endif %}
+    </div>
+
+    {# image #}
+    <div class="text-center d-none d-lg-block p-5">
+        <img src="{{ asset('uploads/images/work.png') }}" alt="" class="" width="200px"/>
+    </div>
 </div>
 {% endblock %}

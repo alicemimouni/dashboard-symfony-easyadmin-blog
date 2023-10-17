@@ -25,15 +25,26 @@ input[type="text"], textarea, [contenteditable] {
     user-select: text;
 }
 
-body {
 
+body {
+    
     margin: 0;
     box-sizing: border-box;
     color: black;
     font-family: $font-text;
-   
-    a {
 
+    // background color class
+    .background-primary {
+        background-color: $color-primary;
+    }
+
+    // color class
+    .color-primary {
+        color: $color-primary;
+    }
+
+    // link color
+    a {
         text-decoration: none;
         color: white;
     }
@@ -109,14 +120,12 @@ body {
 
             opacity: 0;
             width: 0;
-
         }
 
         to {
 
             opacity: 1;
             width: 100%;
-
         }
     }
 
@@ -126,14 +135,12 @@ body {
 
             opacity: 0;
             width: 0;
-
         }
 
         to {
 
             opacity: 1;
             width: 100%;
-
         }
     }
 
@@ -162,8 +169,6 @@ body {
 
             font-size: 2rem;
         }
-
-
     }
 
     h1 {

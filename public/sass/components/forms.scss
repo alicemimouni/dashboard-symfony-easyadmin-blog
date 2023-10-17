@@ -74,3 +74,19 @@ input:focus {
 
     outline: none;
 }
+
+// form control for bootstrap
+.form-container-login {
+
+    .form-content {
+        max-width: 350px;
+        .form-control {
+            background: none; 
+          }
+        
+        .form-control:focus {
+        box-shadow: none;
+        
+        }
+    }
+}
