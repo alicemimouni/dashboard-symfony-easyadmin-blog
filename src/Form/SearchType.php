@@ -33,8 +33,7 @@ class SearchType extends AbstractType
         ->add('Go', SubmitType::class, [
             'attr' => [
                 'class' => 'button',
-            ]
-           
+            ]  
         ])
         ;
     }

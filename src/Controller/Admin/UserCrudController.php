@@ -57,7 +57,7 @@ class UserCrudController extends AbstractCrudController
 
        yield TextField::new('username', 'Nom utilisateur');
 
-        yield TextField::new('password')->onlyOnForms()
+        yield TextField::new('password', 'Mot de passe')->onlyOnForms()
         ->setFormType(PasswordType::class);
 
         yield ChoiceField::new('roles')

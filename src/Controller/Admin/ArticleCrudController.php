@@ -58,7 +58,7 @@ class ArticleCrudController extends AbstractCrudController
 
        yield DateField::new('date');
 
-       yield AssociationField::new('categories')->onlyOnForms();
+       yield AssociationField::new('categories', 'Catégories')->onlyOnForms();
 
        yield TextareaField::new('introduction')->onlyOnForms();
     

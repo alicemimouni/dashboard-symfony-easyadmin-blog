@@ -19,7 +19,6 @@ class NewsletterType extends AbstractType
                 'class'=> 'input-text',
                 'placeholder' => 'Adresse mail'
             ],
-           
         ])
         ;
     }
